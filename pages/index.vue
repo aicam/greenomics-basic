@@ -19,15 +19,16 @@
 
     <!-- Who we are -->
     <v-container fluid style="background: white">
-      <v-row style="padding: 100px">
-        <v-col lg="6">
+      <v-row style="padding-top: 50px; padding-bottom: 50px;">
+        <v-col lg="6" style="padding: 50px">
           <v-row justify="center" align="center">
-            <img class="tile" src="@/static/logo.png">
+            <img class="tile" src="@/static/polygon.png" width="100" />
+            <img class="tile" src="@/static/logo.png" width="250" />
           </v-row>
         </v-col>
-        <v-col>
+        <v-col style="padding-left: 30px; padding-right: 30px;">
           <v-row justify="center" align="center">
-            <h2 style="color: black; font-size: 25px">
+            <h2 style="color: black; font-size: 25px; font-family: 'DejaVu Sans'">
               Our mission is removing every molecule of Carbon from the earth. There are technologies are being developed
               and farms are being established. The goal is to provide enough funding for all of them to remove Carbon as much as
               needed and as soon as possible. Recently, Blockchain technologies have contributed to many projects and now we use it
@@ -37,12 +38,16 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <OurGoal/>
   </div>
 </template>
 
 <script>
+import OurGoal from "@/components/LandingPage/OurGoal";
 export default {
   name: 'IndexPage',
+  components: {OurGoal},
   data() {
     return ({
       onPageLoadedFadeIn: false
@@ -57,7 +62,6 @@ export default {
     }
 
     let elementsArray = document.querySelectorAll(".tile");
-    console.log(elementsArray);
     window.addEventListener('scroll', fadeIn );
     function fadeIn() {
       for (var i = 0; i < elementsArray.length; i++) {
