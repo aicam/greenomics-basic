@@ -1,6 +1,21 @@
 <template>
   <div>
     <v-container fluid :style="{backgroundImage: `url('${require('static/earth_wallpaper.png')}')`}" class="background">
+      <v-row justify="center">
+        <v-col v-for="(item, i) in topMenu" cols="1" :key="i">
+          <v-chip
+            large
+            :href="item.href"
+            outlined
+            class="mr-2 tile"
+            color="black"
+            style="font-weight: bold; font-size: 20px"
+          >
+            {{item.title}}
+          </v-chip>
+        </v-col>
+      </v-row>
+      <v-spacer></v-spacer>
       <v-row style="padding: 150px">
         <v-col lg="4" style="color: chocolate">
           <v-row justify="center" align="center">
@@ -18,7 +33,7 @@
     </v-container>
 
     <!-- Who we are -->
-    <v-container fluid style="background: white">
+    <v-container id="whoweare" fluid style="background: white">
       <v-row style="padding-top: 50px; padding-bottom: 50px;">
         <v-col cols="12" lg="6" sm="12" md="12" style="padding: 50px">
           <v-row justify="center" align="center">
@@ -56,7 +71,25 @@ export default {
   components: {Partners, Tokenizer, HowWorks, OurGoal},
   data() {
     return ({
-      onPageLoadedFadeIn: false
+      onPageLoadedFadeIn: false,
+      topMenu: [
+        {
+          title: 'Mission',
+          href: '#whoweare',
+        },
+        {
+          title: 'Services',
+          href: '#services'
+        },
+        {
+          title: 'How Works',
+          href: '#how'
+        },
+        {
+          title: 'Tokenomics',
+          href: '#tokenomics'
+        }
+      ]
     })
   },
   mounted() {
@@ -89,6 +122,11 @@ export default {
 @font-face {
   font-family: "unfair";
   src: url(~/static/fonts/unfair/Unfair.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "facit";
+  src: url(~/static/fonts/FeFCit2.ttf) format("truetype");
 }
 
 .trans {

@@ -136,4 +136,7 @@ export default {
     transform: scale(0.4);
   }
 }
+html {
+  scroll-behavior: smooth;
+}
 </style>
