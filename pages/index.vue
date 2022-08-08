@@ -20,10 +20,10 @@
     <!-- Who we are -->
     <v-container fluid style="background: white">
       <v-row style="padding-top: 50px; padding-bottom: 50px;">
-        <v-col lg="6" style="padding: 50px">
+        <v-col cols="12" lg="6" sm="12" md="12" style="padding: 50px">
           <v-row justify="center" align="center">
+            <img class="tile" src="@/static/logo-outline.png" width="100" />
             <img class="tile" src="@/static/polygon.png" width="100" />
-            <img class="tile" src="@/static/logo.png" width="250" />
           </v-row>
         </v-col>
         <v-col style="padding-left: 30px; padding-right: 30px;">
@@ -40,14 +40,20 @@
     </v-container>
 
     <OurGoal/>
+    <HowWorks />
+    <Tokenizer />
+    <Partners />
   </div>
 </template>
 
 <script>
 import OurGoal from "@/components/LandingPage/OurGoal";
+import HowWorks from "@/components/LandingPage/HowWorks";
+import Tokenizer from "@/components/LandingPage/Tokenizer";
+import Partners from "@/components/LandingPage/Communities";
 export default {
   name: 'IndexPage',
-  components: {OurGoal},
+  components: {Partners, Tokenizer, HowWorks, OurGoal},
   data() {
     return ({
       onPageLoadedFadeIn: false
@@ -92,6 +98,7 @@ export default {
 }
 
 .background {
+  height: 600px;
   background-repeat: no-repeat;
   min-height: inherit;
   background-position: center center;

@@ -1,8 +1,8 @@
 <template>
   <v-container fluid style="background: white" class="text-center">
-    <h1 style="padding: 25px; color: black">Our Services in One Glance</h1>
-    <v-row justify="center" align="center" class="ma-2">
-      <v-col class="pa-3 d-flex flex-column" style="padding: 20px" v-for="(item, i) in cardsInfo" :key="i">
+    <h1 style="padding-bottom: 60px; color: black">Our Services in One Glance</h1>
+    <v-row justify="center" align="center" style="padding: 3px; padding-bottom: 50px">
+      <v-col style="padding: 20px" v-for="(item, i) in cardsInfo" :key="i">
         <v-row justify="center">
           <v-card
             style="background: white;"
@@ -28,6 +28,7 @@ import daoImg from '../../static/dao.png';
 import investmentImg from '../../static/landing/investment.png'
 import projectImg from '../../static/landing/project.png'
 import smartcontractImg from '../../static/landing/smart_contract.png'
+import projectJPG from '../../static/landing/project.jpg'
 
 export default {
   name: "OurGoal",
@@ -42,7 +43,7 @@ export default {
             ' many people who want to contribute in Carbon removing and ... . Blockchain provides a transparent system to invest' +
             ' and see who has invested on what.'},
         {
-          'title': 'Project', 'img': projectImg,
+          'title': 'Project', 'img': projectJPG,
           'desc': 'There 7+ billion people looking for inventions that save us from global warming! you have an idea? define your' +
             ' project and get your own coin, make money, save the world'
         },
@@ -95,4 +96,18 @@ export default {
   -webkit-transform: translateY(0px) rotate(0deg) translateZ(0);
   transform: translateY(0px) rotate(0deg) translateZ(0);
 }
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 75px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+
+
 </style>

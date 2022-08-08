@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app dark style="overflow-x: hidden; position: relative;">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -32,7 +32,7 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-spacer></v-spacer>
-      <img src="@/static/logo.png" style="transform: scale(0.5)"/>
+      <img id="header-logo" src="@/static/logo.png" />
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-main class="ma-0">
@@ -82,8 +82,37 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Marketplace',
+          to: '/marketplace'
+        },
+        {
+          icon: 'mdi-check-decagram',
+          title: 'Verifier',
+          to: '/verifier'
+        },
+        {
+          icon: 'mdi-cart-variant',
+          title: 'Trader',
+          to: '/trader'
+        },
+        {
+          icon: 'mdi-molecule-co2',
+          title: 'Manager',
+          to: '/manager'
+        }
+      ],
+      registrationItems: [
+        {
+          title: 'Verifier',
+          to: '/verifier_registration'
+        },
+        {
+          title: 'Trader',
+          to: '/trader_registration'
+        },
+        {
+          title: 'Producer',
+          to: '/producer_registration'
         }
       ],
       miniVariant: false,
@@ -94,3 +123,17 @@ export default {
   }
 }
 </script>
+
+<style>
+@media only screen and (min-width: 768px) {
+  #header-logo {
+    transform: scale(0.5);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #header-logo {
+    transform: scale(0.4);
+  }
+}
+</style>
