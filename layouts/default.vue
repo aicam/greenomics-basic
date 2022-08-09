@@ -69,36 +69,46 @@
 <script>
 export default {
   name: 'DefaultLayout',
+  mounted() {
+    if (window.location.href.includes('verifier-pages'))
+      this.items = this.items.filter((it, i) => it.in.includes('verifier'))
+  },
   data () {
     return {
       clipped: false,
       drawer: false,
       fixed: false,
+      hereIs: 'home',
       items: [
         {
           icon: 'mdi-apps',
           title: 'Welcome',
-          to: '/'
+          to: '/',
+          in: 'home'
         },
         {
           icon: 'mdi-chart-bubble',
           title: 'Marketplace',
-          to: '/marketplace'
+          to: '/marketplace',
+          in: 'home,verifier'
         },
         {
           icon: 'mdi-check-decagram',
           title: 'Verifier',
-          to: '/verifier'
+          to: '/verifier',
+          in: 'home'
         },
         {
           icon: 'mdi-cart-variant',
           title: 'Trader',
-          to: '/trader'
+          to: '/trader',
+          in: 'home'
         },
         {
           icon: 'mdi-molecule-co2',
           title: 'Manager',
-          to: '/manager'
+          to: '/manager',
+          in: 'home'
         }
       ],
       registrationItems: [

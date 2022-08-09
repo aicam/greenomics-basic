@@ -38,6 +38,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios'
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -64,6 +65,6 @@ export default {
     assetsPublicPath: '/static/'
   },
   server: {
-    host: '0.0.0.0'
+    host: 'localhost'
   }
 }

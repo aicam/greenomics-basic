@@ -9,14 +9,22 @@
     <v-text-field label="Username"></v-text-field>
     <v-text-field label="Password"></v-text-field>
     <v-card-actions>
-      <v-btn color="green">Login</v-btn>
+      <v-btn @click="window.location.href = `${window.location.href.replace('verifier', 'verifier-pages')}`" color="green">Login</v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
 export default {
-  name: "Login"
+  name: "Login",
+  data () {
+    return {
+      window: ""
+    }
+  },
+  mounted() {
+    this.window = window;
+  }
 }
 </script>
 

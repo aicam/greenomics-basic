@@ -38,7 +38,7 @@ export default {
         {'title': 'Verification', 'img': daoImg,
           'desc': 'Verify a carbon removal project to make money, become a governing member of ' +
             'the Carbon Removal Community, and save the world! Want to further increase your ' +
-            'impact? Become a certified verifier.'},
+            'impact? Become a certified verifier-pages.'},
         {'title': 'Invest & Trade', 'img': investmentImg,
           'desc': 'Many essential companies need to emit carbon while many projects are ready ' +
             'to remove carbon from the atmosphere. Invest on the projects or trade their ' +
