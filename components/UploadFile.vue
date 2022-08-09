@@ -12,11 +12,6 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-
-        <v-btn @click="closeDialog" icon>
-          <v-icon id="close-button">mdi-close</v-icon>
-        </v-btn>
-
         <v-btn icon>
           <v-icon id="upload-button">mdi-upload</v-icon>
         </v-btn>

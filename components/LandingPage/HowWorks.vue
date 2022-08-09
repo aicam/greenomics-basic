@@ -5,13 +5,21 @@
     </h1>
     <v-row justify="center" align="center" style="padding-bottom: 50px">
       <v-col lg="6">
-        <v-row style="padding: 30px" class="tile">
-          <h3 style="color: #963eeb; font-size: 25px; font-family: Chandas">In simple words, project managers provide a white paper of what they are going
-            to invent.
-            Verifiers visit and test projects and write reviews. The more reviews a project has the more trustable it
-            will be and
-            obviously it gets more fund. Investors pick projects and invest on them to be a part of <p
-              style="color: #19a60a">GREEN EARTH.</p></h3>
+        <v-row style="padding: 30px" class="tile text-center">
+          <h2>Problem</h2>
+          <h3 style="color: #963eeb; font-size: 25px; font-family: Chandas">Carbon removal is an essential part of climate change actions with an
+            estimated target of 7GTC by 2030, yet it is way behind target due to lack of
+            sufficient investment and lack of projects reliability. On the other hand, the
+            limited carbon allowances are also not allocated efficiently globally due to lack
+            of a global and transparent marketplace.</h3>
+          <h2>Our Solution</h2>
+          <h3 style="color: #963eeb; font-size: 25px; font-family: Chandas">We enable crowd-verification, crow-investment, and a global transparent trade
+            using a blockchain infrastructure. We use Greenomics fungible carbon token
+            as well as non-fungible project tokens to facilitate investment and trade of the
+            carbon permits and carbon offsets in a transparent way. We also enable
+            crowd-verification with financial incentives (via token shares) and governance
+            incentives (via our Decentralized Autonomous Organization solution). We will
+            provide high quality verification when required with our own certified verifiers.</h3>
         </v-row>
       </v-col>
       <v-col class="justify-center tile">

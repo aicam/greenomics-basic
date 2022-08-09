@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container fluid :style="{backgroundImage: `url('${require('static/earth_wallpaper.png')}')`}" class="background">
-      <v-row justify="center">
+      <v-row id="top-menu-items" justify="center">
         <v-col v-for="(item, i) in topMenu" cols="1" :key="i">
           <v-chip
             large
@@ -19,14 +19,14 @@
       <v-row style="padding: 150px">
         <v-col lg="4" style="color: chocolate">
           <v-row justify="center" align="center">
-            <h1 class="trans" style="font-family: 'Bitstream Charter'">Now or Never!</h1>
+            <h2 class="trans" style="font-family: facit">Now or <p style="color: crimson">Never! </p></h2>
           </v-row>
         </v-col>
         <v-spacer></v-spacer>
         <v-col lg="4">
           <v-row justify="center" align="center">
-            <h2><p class="trans" style="color: #19a60a; font-family: unfair; font-size: 45px">GREENOMICS</p>
-              <p class="trans" style="color: black; font-family: 'Bitstream Charter'">Makes The Future</p></h2>
+            <h2><p class="trans text-gradient-greenomics" style="font-family: unfair; font-size: 45px">GREENOMICS</p>
+              <p class="trans" style="color: black; font-family: facit; font-size: 25px">Makes The Future</p></h2>
           </v-row>
         </v-col>
       </v-row>
@@ -44,20 +44,22 @@
         <v-col style="padding-left: 30px; padding-right: 30px;">
           <v-row justify="center" align="center">
             <h2 style="color: black; font-size: 25px; font-family: 'DejaVu Sans'">
-              Our mission is removing every molecule of Carbon from the earth. There are technologies are being developed
-              and farms are being established. The goal is to provide enough funding for all of them to remove Carbon as much as
-              needed and as soon as possible. Recently, Blockchain technologies have contributed to many projects and now we use it
-              as a fundamental technology of our services.
+              Our mission is to reduce the atmospheric carbon back to the sustainable level
+              for planet earth (1 C above pre-industrial age). We ensure global carbon
+              offset/removal empowering all technologies, and we ensure global efficiency in
+              use of carbon emission allowances. We do these in an environmentally and
+              socially sustainable approach.
             </h2>
           </v-row>
         </v-col>
       </v-row>
     </v-container>
 
-    <OurGoal/>
-    <HowWorks />
-    <Tokenizer />
-    <Partners />
+    <OurGoal id="services"/>
+    <HowWorks id="how" />
+    <Tokenizer id="tokenomics" />
+    <Partners id="join"  />
+    <GCTStat class="trans" />
   </div>
 </template>
 
@@ -66,9 +68,10 @@ import OurGoal from "@/components/LandingPage/OurGoal";
 import HowWorks from "@/components/LandingPage/HowWorks";
 import Tokenizer from "@/components/LandingPage/Tokenizer";
 import Partners from "@/components/LandingPage/Communities";
+import GCTStat from "@/components/LandingPage/GCTStat";
 export default {
   name: 'IndexPage',
-  components: {Partners, Tokenizer, HowWorks, OurGoal},
+  components: {GCTStat, Partners, Tokenizer, HowWorks, OurGoal},
   data() {
     return ({
       onPageLoadedFadeIn: false,
@@ -88,6 +91,14 @@ export default {
         {
           title: 'Tokenomics',
           href: '#tokenomics'
+        },
+        {
+          title: 'Join Us',
+          href: '#join'
+        },
+        {
+          title: 'GCT',
+          href: '#gctstat'
         }
       ]
     })
@@ -129,6 +140,16 @@ export default {
   src: url(~/static/fonts/FeFCit2.ttf) format("truetype");
 }
 
+.text-gradient-greenomics {
+  background-color: #f3ec78;
+  background-image: linear-gradient(45deg, #f48553, #26ad05);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
 .trans {
   opacity: 0;
   transform: translate(-30px, 0px);
@@ -162,6 +183,10 @@ export default {
   h2 {
     margin-top: 50px;
     font-size: 40px;
+  }
+
+  #top-menu-items {
+    display: none;
   }
 }
 

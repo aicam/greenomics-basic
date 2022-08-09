@@ -36,22 +36,23 @@ export default {
     return({
       cardsInfo: [
         {'title': 'Verification', 'img': daoImg,
-          'desc': 'How do you know the technology or the project' +
-            ' is real and remove carbon? Blockchain provides the most transparent and easiest way.'},
-        {'title': 'Investment', 'img': investmentImg,
-          'desc': 'There are many companies that need to emit carbon to produce,' +
-            ' many people who want to contribute in Carbon removing and ... . Blockchain provides a transparent system to invest' +
-            ' and see who has invested on what.'},
+          'desc': 'Verify a carbon removal project to make money, become a governing member of ' +
+            'the Carbon Removal Community, and save the world! Want to further increase your ' +
+            'impact? Become a certified verifier.'},
+        {'title': 'Invest & Trade', 'img': investmentImg,
+          'desc': 'Many essential companies need to emit carbon while many projects are ready ' +
+            'to remove carbon from the atmosphere. Invest on the projects or trade their ' +
+            'carbon removal via our transparent marketplace on blockchain.'},
         {
-          'title': 'Project', 'img': projectJPG,
+          'title': 'Develop', 'img': projectJPG,
           'desc': 'There 7+ billion people looking for inventions that save us from global warming! you have an idea? define your' +
             ' project and get your own coin, make money, save the world'
         },
-        {
-          'title': 'Smart Contract', 'img': smartcontractImg,
-          'desc': 'There are many regulations in different countries that are exhausting and parties should comply them. We' +
-            ' deploy them all as smart contracts so you don\'t need be worried about them'
-        }
+        // {
+        //   'title': 'Smart Contract', 'img': smartcontractImg,
+        //   'desc': 'There are many regulations in different countries that are exhausting and parties should comply them. We' +
+        //     ' deploy them all as smart contracts so you don\'t need be worried about them'
+        // }
       ]
     })
   },
