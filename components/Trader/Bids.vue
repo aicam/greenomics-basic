@@ -2,7 +2,7 @@
   <v-container fluid>
     <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
-    <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-content-save-all-outline</v-icon>Following NFTs</h1>
+    <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-sale-outline</v-icon>Bid NFTs</h1>
     <v-row justify="center" align="center" style="padding: 25px">
       <v-btn
         outlined
@@ -41,8 +41,8 @@
       </template>
       <template v-slot:item.buy="{item}">
         <v-row justify="center">
+          <v-chip color="#942C26">Cancel Bid</v-chip>
           <v-chip color="#229433">Buy</v-chip>
-          <v-chip color="#940A6B">Bid</v-chip>
         </v-row>
       </template>
     </v-data-table>
@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  name: "FollowingNFTs",
+  name: "Bids",
   data() {
     return {
       projectDialogShow: false,
@@ -62,7 +62,7 @@ export default {
         {text: 'Technology', value: 'tech', align: 'center'},
         {text: '# Verifications', value: 'verified', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
-        {text: 'Highest bid', value: 'highest_bid', align: 'center'},
+        {text: 'Your bid', value: 'highest_bid', align: 'center'},
         {text: 'Owner', value: 'owner', align: 'center'},
         {text: 'Release date', value: 'release_date', align: 'center'},
         // {text: 'NFT minted date', value: 'mint_date', align: 'center'},

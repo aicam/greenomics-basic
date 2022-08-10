@@ -2,7 +2,7 @@
   <v-container fluid>
     <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
-    <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-sell</v-icon>NFTs for Sale</h1>
+    <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-tag-outline</v-icon>NFTs for Sale</h1>
     <v-row justify="center" align="center" style="padding: 25px">
       <v-btn
         outlined
@@ -41,8 +41,8 @@
       </template>
       <template v-slot:item.buy="{item}">
         <v-row justify="space-around">
-          <v-chip color="#942C26">Buy</v-chip>
-          <v-chip color="#940A6B">Bid</v-chip>
+          <v-chip color="#942C26">Cancel</v-chip>
+          <v-chip color="#940A6B">Accept Bid</v-chip>
         </v-row>
       </template>
     </v-data-table>
@@ -61,7 +61,8 @@ export default {
         {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
         {text: 'Technology', value: 'tech', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
-        {text: 'Owner', value: 'owner', align: 'center'},
+        {text: 'Highest Bid', value: 'highest_bid', align: 'center'},
+        // {text: 'Owner', value: 'owner', align: 'center'},
         {text: 'Release date', value: 'release_date', align: 'center'},
         {text: 'NFT minted date', value: 'mint_date', align: 'center'},
         {text: 'Actions', value: 'buy', align: 'center'},
@@ -74,7 +75,8 @@ export default {
           price: '$12,000',
           release_date: new Date('08/22/2020'),
           owner: 'Herman',
-          tech: 'Natural'
+          tech: 'Natural',
+          highest_bid: '$6,668'
         },
         {
           name: 'Hi Sea',
@@ -83,7 +85,8 @@ export default {
           price: '$1,000,000',
           release_date: new Date('08/22/2030'),
           owner: 'Moflak',
-          tech: 'Industrial'
+          tech: 'Industrial',
+          highest_bid: '$877,259'
         },
       ],
     }
