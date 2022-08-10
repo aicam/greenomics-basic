@@ -28,7 +28,7 @@
 <script>
 import Register from "@/components/Register";
 import Login from "@/components/Login";
-import Completed from "@/components/Completed";
+import Completed from "@/components/RegisterationComplete";
 
 export default {
   name: "verifier",

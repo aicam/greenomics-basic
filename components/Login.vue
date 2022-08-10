@@ -4,12 +4,12 @@
     elevation="5"
   >
     <v-row justify="center">
-      <h3>Verifier Login</h3>
+      <h3>Sign In Form</h3>
     </v-row>
     <v-text-field label="Username"></v-text-field>
     <v-text-field type="password" label="Password"></v-text-field>
     <v-card-actions>
-      <v-btn @click="window.location.href = `${window.location.href.replace(current_path, dst_path)}`" color="green">Login</v-btn>
+      <v-btn @click="window.location.href = `${window.location.href.replace(current_path, dst_path)}`" color="green">Sign In</v-btn>
     </v-card-actions>
   </v-card>
 </template>

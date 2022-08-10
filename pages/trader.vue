@@ -11,7 +11,7 @@
         </v-row>
         <v-stepper-items>
           <v-stepper-content step="0">
-            <Login/>
+            <Login current_path="trader" dst_path="trader-pages"/>
           </v-stepper-content>
           <v-stepper-content step="1">
             <Register :go-complete="goComplete"/>
@@ -26,8 +26,23 @@
 </template>
 
 <script>
+import Register from "@/components/Register";
+import Login from "@/components/Login";
+import Completed from "@/components/RegisterationComplete";
+
 export default {
-  name: "trader"
+  name: "trader",
+  components: {Completed, Login, Register},
+  data() {
+    return ({
+      step: 1,
+    })
+  },
+  methods: {
+    goComplete() {
+      this.step = 2;
+    }
+  }
 }
 </script>
 
