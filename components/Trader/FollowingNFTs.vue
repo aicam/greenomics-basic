@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
     <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-content-save-all-outline</v-icon>Following NFTs</h1>
@@ -60,7 +60,9 @@ export default {
         {text: 'Company Name', value: 'name', align: 'center'},
         {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
         {text: 'Technology', value: 'tech', align: 'center'},
+        {text: '# Verifications', value: 'verified', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
+        {text: 'Highest bid', value: 'highest_bid', align: 'center'},
         {text: 'Owner', value: 'owner', align: 'center'},
         {text: 'Release date', value: 'release_date', align: 'center'},
         {text: 'NFT minted date', value: 'mint_date', align: 'center'},
@@ -74,7 +76,9 @@ export default {
           price: '$12,000',
           release_date: new Date('08/22/2020'),
           owner: 'Herman',
-          tech: 'Natural'
+          tech: 'Natural',
+          highest_bid: '$8,922',
+          verified: '498'
         },
         {
           name: 'Hi Sea',
@@ -83,7 +87,9 @@ export default {
           price: '$1,000,000',
           release_date: new Date('08/22/2030'),
           owner: 'Moflak',
-          tech: 'Industrial'
+          tech: 'Industrial',
+          highest_bid: '$457,922',
+          verified: '1,298'
         },
       ],
     }

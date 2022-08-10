@@ -3,19 +3,22 @@
     <h1 id="header" style="margin-bottom: 30px">Greenomics Marketplace</h1>
 
     <v-footer app bottom fixed padless>
-      <FooterCustom />
+      <FooterCustom/>
     </v-footer>
-
-    <v-card
-      elevation="10"
-      style="background: #333232"
-    >
-      <v-card-title>
-        <h3 id="title" style="color: #cecaca;">Greenomics Carbon Token</h3>
-      </v-card-title>
-      <GCTStat />
-      <NFTMarketplace/>
-    </v-card>
+    <v-container fluid>
+      <v-card
+        elevation="10"
+        style="background: #333232"
+      >
+        <v-card-title>
+          <h3 id="title" style="color: #cecaca;">Greenomics Carbon Token</h3>
+        </v-card-title>
+        <GCTStat/>
+        <v-container fluid>
+          <NFTMarketplace/>
+        </v-container>
+      </v-card>
+    </v-container>
   </v-container>
 </template>
 
@@ -37,6 +40,7 @@ export default {
   #title {
     font-size: 35px;
   }
+
   #header {
     font-size: 100px;
   }

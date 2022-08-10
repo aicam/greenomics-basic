@@ -9,9 +9,12 @@
           <NFTs/>
         </v-card>
       </v-col>
-      <v-col lg="8">
+      <v-col lg="9">
         <v-card style="padding: 20px">
           <FollowingNFTs />
+        </v-card>
+        <v-card style="padding: 20px">
+          <SellingNFTs />
         </v-card>
       </v-col>
       <v-col lg="3">
@@ -25,10 +28,11 @@
 import NFTs from "@/components/Trader/NFTs";
 import FollowingNFTs from "@/components/Trader/FollowingNFTs";
 import TraderInformation from "@/components/Trader/TraderInformation";
+import SellingNFTs from "@/components/Trader/SellingNFTs";
 
 export default {
   name: "index",
-  components: {TraderInformation, FollowingNFTs, NFTs}
+  components: {SellingNFTs, TraderInformation, FollowingNFTs, NFTs}
 }
 </script>
 
