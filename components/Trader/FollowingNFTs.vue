@@ -42,6 +42,7 @@
       <template v-slot:item.buy="{item}">
         <v-row justify="center">
           <v-chip color="#942C26">Buy</v-chip>
+          <v-chip color="#940A6B">Bid</v-chip>
         </v-row>
       </template>
     </v-data-table>

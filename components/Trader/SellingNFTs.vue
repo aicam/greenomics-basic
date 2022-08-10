@@ -2,7 +2,7 @@
   <v-container>
     <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
-    <h1 style="font-size: 40px"><v-icon size="50" color="#069400">mdi-cart-outline</v-icon>Purchased NFTs</h1>
+    <h1 style="font-size: 40px"><v-icon size="50" color="#069400">mdi-cart-outline</v-icon>Selling NFTs</h1>
     <v-row justify="center" align="center" style="padding: 25px">
       <v-btn
         outlined
@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: "NFTs",
+  name: "SellingNFTs",
   data() {
     return {
       projectDialogShow: false,

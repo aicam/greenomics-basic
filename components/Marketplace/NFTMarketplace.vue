@@ -66,7 +66,7 @@ export default {
           price: '$78,000',
           release_date: new Date('08/22/2030'),
           owner: 'Herman',
-          tech: 'Natural'
+          tech: 'Natural',
         },
         {
           name: 'Green Earth',
