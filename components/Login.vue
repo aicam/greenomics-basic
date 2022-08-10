@@ -9,7 +9,7 @@
     <v-text-field label="Username"></v-text-field>
     <v-text-field type="password" label="Password"></v-text-field>
     <v-card-actions>
-      <v-btn @click="window.location.href = `${window.location.href.replace('verifier', 'verifier-pages')}`" color="green">Login</v-btn>
+      <v-btn @click="window.location.href = `${window.location.href.replace(current_path, dst_path)}`" color="green">Login</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -17,6 +17,7 @@
 <script>
 export default {
   name: "Login",
+  props: ['current_path', 'dst_path'],
   data () {
     return {
       window: ""

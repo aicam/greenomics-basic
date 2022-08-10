@@ -11,7 +11,7 @@
         </v-row>
         <v-stepper-items>
           <v-stepper-content step="0">
-            <Login/>
+            <Login current_path="verifier" dst_path="verifier-pages"/>
           </v-stepper-content>
           <v-stepper-content step="1">
             <Register :go-complete="goComplete"/>
@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import Register from "@/components/VerifierLogin/Register";
-import Login from "@/components/VerifierLogin/Login";
-import Completed from "@/components/VerifierLogin/Completed";
+import Register from "@/components/Register";
+import Login from "@/components/Login";
+import Completed from "@/components/Completed";
 
 export default {
   name: "verifier",

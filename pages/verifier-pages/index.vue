@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import VerifiedProjects from "@/components/VerifierIndex/VerifiedProjects";
-import VerifierInformation from "@/components/VerifierIndex/VerifierInformation";
+import VerifiedProjects from "@/components/Verifier/VerifierIndex/VerifiedProjects";
+import VerifierInformation from "@/components/Verifier/VerifierIndex/VerifierInformation";
 export default {
   name: "index",
   components: {VerifierInformation, VerifiedProjects},

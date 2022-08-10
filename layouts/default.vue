@@ -72,6 +72,8 @@ export default {
   mounted() {
     if (window.location.href.includes('verifier-pages'))
       this.items = this.items.filter((it, i) => it.in.includes('verifier'))
+    else
+      this.items = this.items.filter((it, i) => it.in.includes('home'))
   },
   data () {
     return {
@@ -87,7 +89,7 @@ export default {
           in: 'home,verifier'
         },
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-view-dashboard-outline',
           title: 'Verifier Homepage',
           to: '/verifier-pages',
           in: 'verifier'
