@@ -84,7 +84,13 @@ export default {
           icon: 'mdi-apps',
           title: 'Welcome',
           to: '/',
-          in: 'home'
+          in: 'home,verifier'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Verifier Homepage',
+          to: '/verifier-pages',
+          in: 'verifier'
         },
         {
           icon: 'mdi-chart-bubble',

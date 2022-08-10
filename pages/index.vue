@@ -7,9 +7,9 @@
             large
             :href="item.href"
             outlined
-            class="mr-2 tile"
+            class="tile"
             color="black"
-            style="font-weight: bold; font-size: 20px"
+            style="font-weight: bold"
           >
             {{item.title}}
           </v-chip>
