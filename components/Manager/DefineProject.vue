@@ -72,7 +72,7 @@
       <v-row align="center">
         <v-col lg="8">
           <h3>If you are a farmer or have a plan to cultivate to remove carbon choose Natural. Otherwise choose
-          Industrial</h3>
+          Industrial which means you want to develop a technology that remove carbon including turbines.</h3>
         </v-col>
         <v-col>
           <v-select
