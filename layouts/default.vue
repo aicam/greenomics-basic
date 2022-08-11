@@ -74,6 +74,8 @@ export default {
       this.items = this.items.filter((it, i) => it.in.includes('verifier'))
     else if(window.location.href.includes('trader-pages'))
       this.items = this.items.filter((it, i) => it.in.includes('trader'))
+    else if(window.location.href.includes('manager-pages'))
+      this.items = this.items.filter((it, i) => it.in.includes('manager'))
     else
       this.items = this.items.filter((it, i) => it.in.includes('home'))
   },
@@ -88,7 +90,7 @@ export default {
           icon: 'mdi-apps',
           title: 'Welcome',
           to: '/',
-          in: 'home,verifier,trader'
+          in: 'home,verifier,trader,manager'
         },
         {
           icon: 'mdi-view-dashboard-outline',
@@ -103,10 +105,16 @@ export default {
           in: 'trader'
         },
         {
+          icon: 'mdi-view-dashboard-outline',
+          title: 'Manager Homepage',
+          to: '/manager-pages',
+          in: 'manager'
+        },
+        {
           icon: 'mdi-chart-bubble',
           title: 'Marketplace',
           to: '/marketplace',
-          in: 'home,verifier,trader'
+          in: 'home,verifier,trader,manager'
         },
         {
           icon: 'mdi-check-decagram',

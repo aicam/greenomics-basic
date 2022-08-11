@@ -8,7 +8,7 @@
       dense
       :headers="headers"
       :items="tbDataShow"
-      item-key="name"
+      item-key="id"
       class="elevation-1"
     >
       <template v-slot:item.release_date="{item}">
@@ -46,6 +46,7 @@ export default {
       ],
       tbData: [
         {
+          id: 23112,
           name: 'Kill Carbon',
           co2: '4.33',
           mint_date: '11/09/2017',
@@ -57,7 +58,8 @@ export default {
           highest_bid: '$44,250'
         },
         {
-          name: 'Green Earth',
+          id: 23111,
+          name: 'Kill Carbon',
           co2: '2.97',
           mint_date: '10/29/2018',
           bought_date: '04/22/2022',
