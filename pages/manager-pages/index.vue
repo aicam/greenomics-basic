@@ -4,16 +4,22 @@
       <v-col lg="3">
         <Wallet/>
       </v-col>
-      <v-col lg="6">
-
+      <v-col lg="9">
+        <v-card>
+          <Projects/>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import ProjectInformation from "@/components/Manager/Projects";
+import Projects from "@/components/Manager/Projects";
+
 export default {
-  name: "index"
+  name: "index",
+  components: {Projects, ProjectInformation}
 }
 </script>
 
