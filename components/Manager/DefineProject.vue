@@ -81,6 +81,9 @@
             ></v-select>
         </v-col>
       </v-row>
+      <v-card-actions>
+        <v-btn outlined color="#AEAFF9">Submit</v-btn>
+      </v-card-actions>
     </v-card>
   </v-container>
 </template>

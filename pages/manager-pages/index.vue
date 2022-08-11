@@ -14,6 +14,9 @@
       <v-col lg="9">
         <DefineProject />
       </v-col>
+      <v-col lg="3">
+        <ManagerInformation />
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -22,10 +25,11 @@
 import ProjectInformation from "@/components/Manager/Projects";
 import Projects from "@/components/Manager/Projects";
 import DefineProject from "@/components/Manager/DefineProject";
+import ManagerInformation from "@/components/Manager/ManagerInformation";
 
 export default {
   name: "index",
-  components: {DefineProject, Projects, ProjectInformation}
+  components: {ManagerInformation, DefineProject, Projects, ProjectInformation}
 }
 </script>
 
