@@ -133,6 +133,24 @@ export default {
           title: 'Manager',
           to: '/manager',
           in: 'home'
+        },
+        {
+          icon: 'mdi-chat-question-outline',
+          title: 'FAQ',
+          to: '/#',
+          in: 'home,verifier,trader,manager'
+        },
+        {
+          icon: 'mdi-email-edit-outline',
+          title: 'Contact Us',
+          to: '/#',
+          in: 'home,verifier,trader,manager'
+        },
+        {
+          icon: 'mdi-newspaper-variant-outline',
+          title: 'News',
+          to: '/#',
+          in: 'home,verifier,trader,manager'
         }
       ],
       registrationItems: [
