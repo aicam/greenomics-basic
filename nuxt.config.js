@@ -20,8 +20,19 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
+
+  // vue: {
+  //   config: {
+  //     css: {
+  //       loaderOptions: {
+  //         sass: {
+  //           // includePaths: ['node_modules/compass-mixins/lib']
+  //         }
+  //       }
+  //     }
+  //   }
+  // },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [

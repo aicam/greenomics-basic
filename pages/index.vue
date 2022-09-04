@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container fluid :style="{backgroundImage: `url('${require('static/earth_wallpaper.png')}')`}" class="background">
+    <v-container fluid :style="{backgroundImage: `url('${require('static/landing/a.webp')}')`}" class="background">
       <v-row id="top-menu-items" justify="center">
         <v-col v-for="(item, i) in topMenu" cols="1" :key="i">
           <v-chip
@@ -54,7 +54,7 @@
         </v-col>
       </v-row>
     </v-container>
-
+    <AnimatedCarousel />
     <OurGoal id="services"/>
     <HowWorks id="how" />
     <Tokenizer id="tokenomics" />
@@ -69,9 +69,10 @@ import HowWorks from "@/components/LandingPage/HowWorks";
 import Tokenizer from "@/components/LandingPage/Tokenizer";
 import Partners from "@/components/LandingPage/Communities";
 import GCTStat from "@/components/LandingPage/GCTStat";
+import AnimatedCarousel from "@/components/LandingPage/AnimatedCarousel";
 export default {
   name: 'IndexPage',
-  components: {GCTStat, Partners, Tokenizer, HowWorks, OurGoal},
+  components: {AnimatedCarousel, GCTStat, Partners, Tokenizer, HowWorks, OurGoal},
   data() {
     return ({
       onPageLoadedFadeIn: false,
@@ -157,7 +158,7 @@ export default {
 }
 
 .background {
-  height: 600px;
+  height: 800px;
   background-repeat: no-repeat;
   min-height: inherit;
   background-position: center center;
