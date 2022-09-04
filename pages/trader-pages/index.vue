@@ -6,7 +6,7 @@
       </v-col>
       <v-col>
         <v-card style="padding: 20px">
-          <NFTs/>
+          <NFTs :all-nfts="allNfts" :owners="owners"/>
         </v-card>
       </v-col>
       <v-col lg="9">
@@ -39,7 +39,28 @@ import LatestNews from "@/components/Trader/LatestNews";
 
 export default {
   name: "index",
-  components: {LatestNews, Bids, SellingNFTs, TraderInformation, FollowingNFTs, NFTs}
+  components: {LatestNews, Bids, SellingNFTs, TraderInformation, FollowingNFTs, NFTs},
+  data() {
+    return {
+      owners: [],
+      allNfts: [],
+      username: ""
+    }
+  },
+  mounted() {
+    this.getAllNFTs()
+    this.username = localStorage.getItem("username")
+  },
+  methods: {
+    getAllNFTs() {
+      this.$axios.get('marketplace/owners').then(res => {
+        this.owners = res.data
+      });
+      this.$axios.get('marketplace/nft_list').then(res => {
+        this.allNfts = res.data
+      })
+    }
+  }
 }
 </script>
 

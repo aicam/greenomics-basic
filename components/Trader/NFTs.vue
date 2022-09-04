@@ -51,6 +51,7 @@
 <script>
 export default {
   name: "NFTs",
+  props: ['allNfts', 'owners'],
   data() {
     return {
       projectDialogShow: false,
@@ -89,7 +90,7 @@ export default {
   },
   mounted() {
     this.tbDataShow = this.tbData
-  }
+  },
 }
 </script>
 

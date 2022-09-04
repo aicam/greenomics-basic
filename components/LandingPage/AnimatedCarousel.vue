@@ -8,8 +8,8 @@
               <v-row justify="center" align="center">
                 <img src="~/static/landing/verification.gif">
               </v-row>
-              <v-row justify="center">
-                <h3 style="color: white; font-size: 25px">True and Reliable Carbon Credit</h3>
+              <v-row justify="center" style="background: #92a0d6">
+                <h3 style="color: black; font-size: 25px">True Carbon Credit</h3>
               </v-row>
             </v-container>
           </div>
@@ -18,8 +18,8 @@
               <v-row justify="center" align="center">
                 <img src="~/static/landing/registry.gif">
               </v-row>
-              <v-row justify="center">
-                <h3 style="color: black; font-size: 25px">Integrated Crypto based Registry</h3>
+              <v-row justify="center" style="background: #92a0d6">
+                <h3 style="color: black; font-size: 25px">Integrated Registry</h3>
               </v-row>
             </v-container>
           </div>
@@ -28,8 +28,8 @@
               <v-row justify="center" align="center">
                 <img src="~/static/landing/marketplace.gif">
               </v-row>
-              <v-row justify="center">
-                <h3 style="color: black; font-size: 25px">Transparent Marketplace</h3>
+              <v-row justify="center" class="text-center" style="background: #92a0d6; padding: 10px">
+                <h3 style="color: black; font-size: 20px">Transparent Marketplace</h3>
               </v-row>
             </v-container>
           </div>

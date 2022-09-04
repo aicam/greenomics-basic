@@ -43,6 +43,9 @@ export default {
           'desc': 'Many essential companies need to emit carbon while many projects are ready ' +
             'to remove carbon from the atmosphere. Invest on the projects or trade their ' +
             'carbon removal via our transparent marketplace on blockchain.'},
+        {'title': 'Registry', 'img': smartcontractImg,
+          'desc': 'We have provided all solutions in one system. All projects are registered in a transparent and ' +
+                  'scalable decentralized infrastructure. The system searches actively for double counted or duplicate projects to remove them.'},
         {
           'title': 'Develop', 'img': projectJPG,
           'desc': 'There 7+ billion people looking for inventions that save us from global warming! you have an idea? define your' +

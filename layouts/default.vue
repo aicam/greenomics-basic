@@ -29,6 +29,9 @@
       :clipped-left="clipped"
       fixed
       app
+      v-if="this.headerOpacity > 0.01"
+      :style="{opacity: headerOpacity}"
+      class="navbar"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-spacer></v-spacer>
@@ -69,18 +72,9 @@
 <script>
 export default {
   name: 'DefaultLayout',
-  mounted() {
-    if (window.location.href.includes('verifier-pages'))
-      this.items = this.items.filter((it, i) => it.in.includes('verifier'))
-    else if(window.location.href.includes('trader-pages'))
-      this.items = this.items.filter((it, i) => it.in.includes('trader'))
-    else if(window.location.href.includes('manager-pages'))
-      this.items = this.items.filter((it, i) => it.in.includes('manager'))
-    else
-      this.items = this.items.filter((it, i) => it.in.includes('home'))
-  },
-  data () {
+  data: () => {
     return {
+      headerOpacity: 0,
       clipped: false,
       drawer: false,
       fixed: false,
@@ -172,11 +166,38 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
+  },
+  mounted() {
+    window.addEventListener("scroll", (event) => {
+      var scroll_y = window.scrollY;
+      console.log("scroll", scroll_y)
+      if (scroll_y !== undefined)
+      this.headerOpacity = (scroll_y / 500) < 1 ? (scroll_y / 500) : 1
+      console.log("header opacity", this.headerOpacity)
+    });
+
+    if (window.location.href.includes('verifier-pages'))
+      this.items = this.items.filter((it, i) => it.in.includes('verifier'))
+    else if(window.location.href.includes('trader-pages'))
+      this.items = this.items.filter((it, i) => it.in.includes('trader'))
+    else if(window.location.href.includes('manager-pages'))
+      this.items = this.items.filter((it, i) => it.in.includes('manager'))
+    else
+      this.items = this.items.filter((it, i) => it.in.includes('home'))
   }
 }
 </script>
 
 <style>
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 10;
+}
+
 @media only screen and (min-width: 768px) {
   #header-logo {
     transform: scale(0.5);

@@ -6,10 +6,10 @@
     <v-row justify="center">
       <h3>Sign In Form</h3>
     </v-row>
-    <v-text-field label="Username"></v-text-field>
+    <v-text-field label="Email" v-model="username"></v-text-field>
     <v-text-field type="password" label="Password"></v-text-field>
     <v-card-actions>
-      <v-btn @click="window.location.href = `${window.location.href.replace(current_path, dst_path)}`" color="green">Sign In</v-btn>
+      <v-btn @click="login" color="green">Sign In</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -20,11 +20,18 @@ export default {
   props: ['current_path', 'dst_path'],
   data () {
     return {
-      window: ""
+      window: "",
+      username: ""
     }
   },
   mounted() {
     this.window = window;
+  },
+  methods: {
+    login() {
+      window.location.href = `${window.location.href.replace(this.current_path, this.dst_path)}`
+      localStorage.setItem("username", this.username);
+    }
   }
 }
 </script>

@@ -34,6 +34,12 @@ export default {
   //   }
   // },
 
+  axios: {
+    baseURL: 'http://localhost:8000', // Used as fallback if no runtime config is provided
+  },
+
+  loading: '~/components/LoadingBar.vue',
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],

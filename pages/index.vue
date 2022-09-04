@@ -2,31 +2,26 @@
   <div>
     <v-container fluid :style="{backgroundImage: `url('${require('static/landing/a.webp')}')`}" class="background">
       <v-row id="top-menu-items" justify="center">
-        <v-col v-for="(item, i) in topMenu" cols="1" :key="i">
-          <v-chip
+        <v-col v-for="(item, i) in topMenu" cols="2" :key="i">
+          <v-btn
             large
             :href="item.href"
-            outlined
             class="tile"
-            color="black"
+            color="#969743"
             style="font-weight: bold"
           >
-            {{item.title}}
-          </v-chip>
+            {{ item.title }}
+          </v-btn>
         </v-col>
       </v-row>
       <v-spacer></v-spacer>
-      <v-row style="padding: 150px">
-        <v-col lg="4" style="color: chocolate">
-          <v-row justify="center" align="center">
-            <h2 class="trans" style="font-family: facit">Now or <p style="color: crimson">Never! </p></h2>
-          </v-row>
-        </v-col>
-        <v-spacer></v-spacer>
+      <v-row style="padding: 150px" justify="center">
         <v-col lg="4">
           <v-row justify="center" align="center">
-            <h2><p class="trans text-gradient-greenomics" style="font-family: unfair; font-size: 45px">GREENOMICS</p>
-              <p class="trans" style="color: black; font-family: facit; font-size: 25px">Makes The Future</p></h2>
+            <h2><p class="trans text-gradient-greenomics" style="font-family: unfair">GREENOMICS</p></h2>
+            <v-row>
+              <AnimatedFlippedText/>
+            </v-row>
           </v-row>
         </v-col>
       </v-row>
@@ -37,8 +32,8 @@
       <v-row style="padding-top: 50px; padding-bottom: 50px;">
         <v-col cols="12" lg="6" sm="12" md="12" style="padding: 50px">
           <v-row justify="center" align="center">
-            <img class="tile" src="@/static/logo-outline.png" width="100" />
-            <img class="tile" src="@/static/polygon.png" width="100" />
+            <img class="tile" src="@/static/logo-outline.png" width="100"/>
+            <img class="tile" src="@/static/polygon.png" width="100"/>
           </v-row>
         </v-col>
         <v-col style="padding-left: 30px; padding-right: 30px;">
@@ -54,12 +49,12 @@
         </v-col>
       </v-row>
     </v-container>
-    <AnimatedCarousel />
+    <AnimatedCarousel/>
     <OurGoal id="services"/>
-    <HowWorks id="how" />
-    <Tokenizer id="tokenomics" />
-    <Partners id="join"  />
-    <GCTStat class="trans" />
+    <HowWorks id="how"/>
+    <Tokenizer id="tokenomics"/>
+    <Partners id="join"/>
+    <GCTStat class="trans"/>
   </div>
 </template>
 
@@ -70,9 +65,11 @@ import Tokenizer from "@/components/LandingPage/Tokenizer";
 import Partners from "@/components/LandingPage/Communities";
 import GCTStat from "@/components/LandingPage/GCTStat";
 import AnimatedCarousel from "@/components/LandingPage/AnimatedCarousel";
+import AnimatedFlippedText from "@/components/LandingPage/AnimatedFlippedText";
+
 export default {
   name: 'IndexPage',
-  components: {AnimatedCarousel, GCTStat, Partners, Tokenizer, HowWorks, OurGoal},
+  components: {AnimatedFlippedText, AnimatedCarousel, GCTStat, Partners, Tokenizer, HowWorks, OurGoal},
   data() {
     return ({
       onPageLoadedFadeIn: false,
@@ -113,7 +110,8 @@ export default {
     }
 
     let elementsArray = document.querySelectorAll(".tile");
-    window.addEventListener('scroll', fadeIn );
+    window.addEventListener('scroll', fadeIn);
+
     function fadeIn() {
       for (var i = 0; i < elementsArray.length; i++) {
         var elem = elementsArray[i]
@@ -125,6 +123,7 @@ export default {
         }
       }
     }
+
     fadeIn();
   }
 }
@@ -173,6 +172,10 @@ export default {
   h2 {
     font-size: 60px;
   }
+
+  .text-gradient-greenomics {
+    font-size: 100px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -189,6 +192,10 @@ export default {
   #top-menu-items {
     display: none;
   }
+
+  .text-gradient-greenomics {
+    font-size: 45px;
+  }
 }
 
 .tile {
@@ -202,11 +209,13 @@ export default {
   transition: .4s;
   opacity: 0;
 }
+
 .bottom-right.inView {
   opacity: 1;
   -webkit-transform: translateY(0px) rotate(0deg) translateZ(0);
   transform: translateY(0px) rotate(0deg) translateZ(0);
 }
+
 .inView {
   opacity: 1;
   -webkit-transform: translateY(0px) rotate(0deg) translateZ(0);
