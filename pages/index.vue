@@ -5,9 +5,10 @@
         <v-col v-for="(item, i) in topMenu" cols="2" :key="i">
           <v-btn
             large
+            outlined
             :href="item.href"
             class="tile"
-            color="#969743"
+            color="white"
             style="font-weight: bold"
           >
             {{ item.title }}
@@ -30,13 +31,14 @@
     <!-- Who we are -->
     <v-container id="whoweare" fluid style="background: white">
       <v-row style="padding-top: 50px; padding-bottom: 50px;">
-        <v-col cols="12" lg="6" sm="12" md="12" style="padding: 50px">
+        <v-col cols="6">
           <v-row justify="center" align="center">
-            <img class="tile" src="@/static/logo-outline.png" width="100"/>
-            <img class="tile" src="@/static/polygon.png" width="100"/>
+            <img src="@/static/landing/bitcoin_green.png" width="300">
+<!--            <img class="tile" src="@/static/logo-outline.png" width="100"/>-->
+<!--            <img class="tile" src="@/static/polygon.png" width="100"/>-->
           </v-row>
         </v-col>
-        <v-col style="padding-left: 30px; padding-right: 30px;">
+        <v-col style="padding-right: 30px;">
           <v-row justify="center" align="center">
             <h2 style="color: black; font-size: 25px; font-family: 'DejaVu Sans'">
               Our mission is to reduce the atmospheric carbon back to the sustainable level
@@ -91,12 +93,12 @@ export default {
           href: '#tokenomics'
         },
         {
-          title: 'Join Us',
-          href: '#join'
-        },
-        {
           title: 'GCT',
           href: '#gctstat'
+        },
+        {
+          title: 'Join Us',
+          href: '#join'
         }
       ]
     })

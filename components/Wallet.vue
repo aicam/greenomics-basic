@@ -1,5 +1,9 @@
 <template>
   <v-card style="padding: 50px;">
+    <v-container class="text-center">
+      <h3 style="font-size: 25px">Balance</h3>
+      <strong style="font-size: 18px">${{ balance }}</strong>
+    </v-container>
     <h3 style="font-size: 25px">Wallet Information</h3>
     <div style="padding-top: 20px" v-show="walletLoading || !isConnected">
       <v-progress-circular
@@ -39,6 +43,7 @@ import WalletConnectQRCodeModal from "@walletconnect/qrcode-modal";
 
 export default {
   name: "Wallet",
+  props: ['balance'],
   data() {
     return {
       walletLoading: true,

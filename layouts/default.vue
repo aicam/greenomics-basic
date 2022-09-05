@@ -29,7 +29,7 @@
       :clipped-left="clipped"
       fixed
       app
-      v-if="this.headerOpacity > 0.01"
+      v-if="(loc.length !== 2) ? true : this.headerOpacity > 0.01"
       :style="{opacity: headerOpacity}"
       class="navbar"
     >
@@ -74,6 +74,7 @@ export default {
   name: 'DefaultLayout',
   data: () => {
     return {
+      loc: "",
       headerOpacity: 0,
       clipped: false,
       drawer: false,
@@ -168,12 +169,15 @@ export default {
     }
   },
   mounted() {
+    this.loc = window.location.href.split('/').filter(i => i !== '');
     window.addEventListener("scroll", (event) => {
       var scroll_y = window.scrollY;
-      console.log("scroll", scroll_y)
       if (scroll_y !== undefined)
       this.headerOpacity = (scroll_y / 500) < 1 ? (scroll_y / 500) : 1
-      console.log("header opacity", this.headerOpacity)
+      if (window.location.href.split('/').filter(i => i !== '').length !== 2) {
+        this.headerOpacity = 1
+        window.removeEventListener("scroll", this)
+      }
     });
 
     if (window.location.href.includes('verifier-pages'))

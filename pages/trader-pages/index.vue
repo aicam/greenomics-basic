@@ -1,8 +1,8 @@
 <template>
   <v-container fluid>
-    <v-row justify="center" align="start">
+    <v-row justify="center" align="start" v-if="owners.length > 0 && allNfts.length > 0">
       <v-col lg="3">
-        <Wallet/>
+        <Wallet :balance="balance"/>
       </v-col>
       <v-col>
         <v-card style="padding: 20px">
@@ -44,21 +44,40 @@ export default {
     return {
       owners: [],
       allNfts: [],
-      username: ""
+      username: "",
+      ownerNfts: [],
+      balance: 0
     }
   },
-  mounted() {
-    this.getAllNFTs()
+  async mounted() {
+    await this.getAllNFTs()
     this.username = localStorage.getItem("username")
+    this.ownerNfts = this.getUserBalance()
+    console.log("owner nfts", this.ownerNfts);
+    this.balance = 30000 - this.ownerNfts.reduce((pre, curr) => curr['price'] + pre, 0).toFixed(2)
   },
   methods: {
-    getAllNFTs() {
-      this.$axios.get('marketplace/owners').then(res => {
+    async getAllNFTs() {
+      await this.$axios.get('marketplace/owners').then(res => {
         this.owners = res.data
       });
-      this.$axios.get('marketplace/nft_list').then(res => {
+      await this.$axios.get('marketplace/nft_list').then(res => {
         this.allNfts = res.data
       })
+    },
+    getUserBalance() {
+      let userNfts = []
+      this.owners.map(item => {
+        if (item['owner'] === this.username)
+          this.allNfts.map(nft => {
+            if (nft['id'] === item['nft_id']) {
+              item['price'] = (item['stock'] / nft['co2']) * nft['price']
+              item['nft'] = nft
+              userNfts.push(item)
+            }
+          })
+      });
+      return userNfts
     }
   }
 }
