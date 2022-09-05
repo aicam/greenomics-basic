@@ -2,28 +2,25 @@
   <v-container fluid>
     <v-row justify="center" align="start" v-if="owners.length > 0 && allNfts.length > 0">
       <v-col lg="3">
-        <Wallet :balance="balance"/>
+        <Wallet :retired-nfts="ownerRetiredNfts" :balance="balance"/>
       </v-col>
       <v-col>
         <v-card style="padding: 20px">
-          <NFTs :owner-nfts="ownerNfts" />
+          <NFTs :owner-nfts="ownerNfts"/>
         </v-card>
       </v-col>
       <v-col lg="9">
         <v-card style="padding: 20px">
-          <Bids />
+          <SellingNFTs :selling-nfts="ownerSellingNfts"/>
         </v-card>
         <v-card style="padding: 20px">
-          <SellingNFTs />
-        </v-card>
-        <v-card style="padding: 20px">
-          <FollowingNFTs />
+          <FollowingNFTs :market="market"/>
         </v-card>
       </v-col>
       <v-col lg="3">
-        <TraderInformation />
+        <TraderInformation/>
         <div style="padding: 20px"></div>
-        <LatestNews />
+        <LatestNews/>
       </v-col>
     </v-row>
   </v-container>
@@ -46,15 +43,21 @@ export default {
       allNfts: [],
       username: "",
       ownerNfts: [],
-      balance: 0
+      ownerSellingNfts: [],
+      balance: 0,
+      ownerRetiredNfts: [],
+      market: []
     }
   },
   async mounted() {
     await this.getAllNFTs()
     this.username = localStorage.getItem("username")
-    this.ownerNfts = this.getUserBalance()
-    console.log("owner nfts", this.ownerNfts);
+    this.getUserNFTInfo()
     this.balance = 30000 - this.ownerNfts.reduce((pre, curr) => curr['price'] + pre, 0)
+    this.ownerNfts.map(item => {
+      if (item.selling_stock > 0)
+        this.ownerSellingNfts.push(item)
+    });
   },
   methods: {
     async getAllNFTs() {
@@ -65,19 +68,27 @@ export default {
         this.allNfts = res.data
       })
     },
-    getUserBalance() {
+    getUserNFTInfo() {
       let userNfts = []
+      this.market = structuredClone(this.allNfts)
+      this.market.map((nft, i) => this.market[i]['stock'] = nft['co2'])
       this.owners.map(item => {
-        if (item['owner'] === this.username)
-          this.allNfts.map(nft => {
-            if (nft['id'] === item['nft_id']) {
-              item['price'] = ((item['stock'] / nft['co2']) * nft['price']).toFixed(2)
-              item['nft'] = nft
-              userNfts.push(item)
-            }
-          })
+        this.allNfts.map(nft => {
+          if (nft['id'] === item['nft_id'])
+            this.market.map((market_nft, i) => {
+              if (market_nft['id'] === nft['id'])
+                this.market[i]['stock'] -= item['stock']
+            });
+          if (nft['id'] === item['nft_id'] && item['owner'] === this.username) {
+            item['price'] = ((item['stock'] / nft['co2']) * nft['price']).toFixed(2)
+            item['nft'] = nft
+            userNfts.push(item)
+            if (item['retired'])
+              this.ownerRetiredNfts.push(item)
+          }
+        })
       });
-      return userNfts
+      this.ownerNfts = userNfts
     }
   }
 }

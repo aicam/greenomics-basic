@@ -29,7 +29,7 @@
       v-if="tbDataShow != null"
       dense
       :headers="headers"
-      :items="tbDataShow"
+      :items="market"
       item-key="name"
       class="elevation-1"
     >
@@ -42,7 +42,6 @@
       <template v-slot:item.buy="{item}">
         <v-row justify="center">
           <v-chip color="#229433">Buy</v-chip>
-          <v-chip color="#940A6B">Bid</v-chip>
         </v-row>
       </template>
     </v-data-table>
@@ -52,19 +51,19 @@
 <script>
 export default {
   name: "FollowingNFTs",
+  props: ['market'],
   data() {
     return {
       projectDialogShow: false,
       tbDataShow: null,
       headers: [
-        {text: 'Company Name', value: 'name', align: 'center'},
+        {text: 'Company Name', value: 'company_name', align: 'center'},
         {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
-        {text: 'Technology', value: 'tech', align: 'center'},
-        {text: '# Verifications', value: 'verified', align: 'center'},
+        {text: 'Stock Remained', value: 'stock', align: 'center'},
+        {text: 'Technology', value: 'technology', align: 'center'},
+        {text: '# Verifications', value: 'verification', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
-        {text: 'Highest bid', value: 'highest_bid', align: 'center'},
-        {text: 'Owner', value: 'owner', align: 'center'},
-        {text: 'Release date', value: 'release_date', align: 'center'},
+        {text: 'Release date', value: 'release', align: 'center'},
         // {text: 'NFT minted date', value: 'mint_date', align: 'center'},
         {text: 'Actions', value: 'buy', align: 'center'},
       ],

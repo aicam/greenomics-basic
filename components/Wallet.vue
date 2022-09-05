@@ -31,7 +31,7 @@
       </v-row>
       <h3>GCT Tokens</h3>
       <v-row justify="space-around" align="center" style="padding: 25px">
-        <strong>{{ 3 }}</strong>
+        <strong>{{ 500 - usedGCT }}</strong>
       </v-row>
     </v-container>
   </v-card>
@@ -43,7 +43,7 @@ import WalletConnectQRCodeModal from "@walletconnect/qrcode-modal";
 
 export default {
   name: "Wallet",
-  props: ['balance'],
+  props: ['balance', 'retiredNfts'],
   data() {
     return {
       walletLoading: true,
@@ -52,10 +52,15 @@ export default {
       address: null,
       chainID: null,
       accounts: null,
-      MaticBalance: 0
+      MaticBalance: 0,
+      usedGCT: 0
     }
   },
   mounted() {
+    this.retiredNfts.map(item => {
+      this.usedGCT += item.stock
+      console.log("Wallet usedGCT ", item.stock)
+    });
     // Create connector
     this.walletConnector = new NodeWalletConnect(
       {

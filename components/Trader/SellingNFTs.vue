@@ -29,7 +29,7 @@
       v-if="tbDataShow != null"
       dense
       :headers="headers"
-      :items="tbDataShow"
+      :items="sellingNfts"
       item-key="name"
       class="elevation-1"
     >
@@ -41,8 +41,7 @@
       </template>
       <template v-slot:item.buy="{item}">
         <v-row justify="space-around">
-          <v-chip color="#942C26">Cancel</v-chip>
-          <v-chip color="#940A6B">Accept Bid</v-chip>
+          <v-chip color="#942C26" @click="cancel(item.id)">Cancel</v-chip>
         </v-row>
       </template>
     </v-data-table>
@@ -52,19 +51,19 @@
 <script>
 export default {
   name: "SellingNFTs",
+  props: ['sellingNfts'],
   data() {
     return {
       projectDialogShow: false,
       tbDataShow: null,
       headers: [
-        {text: 'Company Name', value: 'name', align: 'center'},
-        {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
-        {text: 'Technology', value: 'tech', align: 'center'},
-        {text: 'Price', value: 'price', align: 'center'},
-        {text: 'Highest Bid', value: 'highest_bid', align: 'center'},
-        // {text: 'Owner', value: 'owner', align: 'center'},
-        {text: 'Release date', value: 'release_date', align: 'center'},
-        {text: 'NFT minted date', value: 'mint_date', align: 'center'},
+        {text: 'Company Name', value: 'nft.company_name', align: 'center'},
+        {text: 'CO2 (Ton)', value: 'nft.co2', align: 'center'},
+        {text: 'Stock', value: 'selling_stock', align: 'center'},
+        {text: 'Stock price', value: 'selling_price', align: 'center'},
+        {text: 'Technology', value: 'nft.technology', align: 'center'},
+        {text: 'Price', value: 'nft.price', align: 'center'},
+        {text: 'Release date', value: 'nft.release', align: 'center'},
         {text: 'Actions', value: 'buy', align: 'center'},
       ],
       tbData: [
@@ -93,6 +92,11 @@ export default {
   },
   mounted() {
     this.tbDataShow = this.tbData
+  },
+  methods: {
+    cancel(id) {
+      this.$axios.get("marketplace/cancel/selling?id=" + id).then((res) => location.reload())
+    }
   }
 }
 </script>

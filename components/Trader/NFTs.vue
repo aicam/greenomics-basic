@@ -41,8 +41,12 @@
         <v-chip @click="projectDialogShow = true">{{ item.name }}</v-chip>
       </template>
       <template v-slot:item.sell="{item}">
-        <v-row justify="center">
+        <v-row justify="center" v-if="!item['retired']">
           <v-chip color="#942C26" @click="() => {sellDialog = true; sellDialogInfo = item}">Sell</v-chip>
+          <v-chip color="#D6A75B" @click="retire(item.id)">Retire</v-chip>
+        </v-row>
+        <v-row justify="center" v-if="item['retired']">
+          <v-chip color="#28D60E">Retired</v-chip>
         </v-row>
       </template>
     </v-data-table>
@@ -99,6 +103,9 @@ export default {
   methods: {
     closeSellDialog() {
       this.sellDialog = false;
+    },
+    retire(id) {
+      this.$axios.get("marketplace/retire?id=" + id).then((res) => location.reload())
     }
   }
 }
