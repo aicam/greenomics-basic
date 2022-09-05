@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <SellDialog v-if="sellDialog" :dialog="sellDialog" v-on:close="closeSellDialog" :info="sellDialogInfo"/>
     <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
     <h1 style="font-size: 40px"><v-icon size="50" color="#069400">mdi-cart-outline</v-icon>Purchased NFTs</h1>
@@ -29,7 +30,7 @@
       v-if="tbDataShow != null"
       dense
       :headers="headers"
-      :items="tbDataShow"
+      :items="ownerNfts"
       item-key="name"
       class="elevation-1"
     >
@@ -41,7 +42,7 @@
       </template>
       <template v-slot:item.sell="{item}">
         <v-row justify="center">
-          <v-chip color="#942C26">Sell</v-chip>
+          <v-chip color="#942C26" @click="() => {sellDialog = true; sellDialogInfo = item}">Sell</v-chip>
         </v-row>
       </template>
     </v-data-table>
@@ -49,20 +50,24 @@
 </template>
 
 <script>
+import SellDialog from "@/components/Trader/SellDialog";
 export default {
   name: "NFTs",
-  props: ['allNfts', 'owners'],
+  components: {SellDialog},
+  props: ['ownerNfts'],
   data() {
     return {
       projectDialogShow: false,
+      sellDialogInfo: {},
+      sellDialog: false,
       tbDataShow: null,
       headers: [
-        {text: 'Company Name', value: 'name', align: 'center'},
-        {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
-        {text: 'Technology', value: 'tech', align: 'center'},
-        {text: 'Price Bought', value: 'price', align: 'center'},
-        {text: 'Release date', value: 'release_date', align: 'center'},
-        {text: 'NFT minted date', value: 'mint_date', align: 'center'},
+        {text: 'Company Name', value: 'nft.company_name', align: 'center'},
+        {text: 'CO2 (Ton)', value: 'nft.co2', align: 'center'},
+        {text: 'Stock', value: 'stock', align: 'center'},
+        {text: 'Technology', value: 'nft.technology', align: 'center'},
+        {text: 'Price', value: 'price', align: 'center'},
+        {text: 'Release date', value: 'nft.release', align: 'center'},
         {text: 'Bought date', value: 'bought_date', align: 'center'},
         {text: 'Actions', value: 'sell', align: 'center'}
       ],
@@ -91,6 +96,11 @@ export default {
   mounted() {
     this.tbDataShow = this.tbData
   },
+  methods: {
+    closeSellDialog() {
+      this.sellDialog = false;
+    }
+  }
 }
 </script>
 

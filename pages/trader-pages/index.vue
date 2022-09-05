@@ -6,7 +6,7 @@
       </v-col>
       <v-col>
         <v-card style="padding: 20px">
-          <NFTs :all-nfts="allNfts" :owners="owners"/>
+          <NFTs :owner-nfts="ownerNfts" />
         </v-card>
       </v-col>
       <v-col lg="9">
@@ -54,7 +54,7 @@ export default {
     this.username = localStorage.getItem("username")
     this.ownerNfts = this.getUserBalance()
     console.log("owner nfts", this.ownerNfts);
-    this.balance = 30000 - this.ownerNfts.reduce((pre, curr) => curr['price'] + pre, 0).toFixed(2)
+    this.balance = 30000 - this.ownerNfts.reduce((pre, curr) => curr['price'] + pre, 0)
   },
   methods: {
     async getAllNFTs() {
@@ -71,7 +71,7 @@ export default {
         if (item['owner'] === this.username)
           this.allNfts.map(nft => {
             if (nft['id'] === item['nft_id']) {
-              item['price'] = (item['stock'] / nft['co2']) * nft['price']
+              item['price'] = ((item['stock'] / nft['co2']) * nft['price']).toFixed(2)
               item['nft'] = nft
               userNfts.push(item)
             }
