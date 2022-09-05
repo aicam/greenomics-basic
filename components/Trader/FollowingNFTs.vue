@@ -1,5 +1,6 @@
 <template>
   <v-container fluid>
+    <BuyDialog v-if="buyDialog" v-on:close="buyDialog = false" :info="buyInfo" :dialog="buyDialog" />
     <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
     <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-content-save-all-outline</v-icon>Following NFTs</h1>
@@ -41,7 +42,7 @@
       </template>
       <template v-slot:item.buy="{item}">
         <v-row justify="center">
-          <v-chip color="#229433">Buy</v-chip>
+          <v-chip color="#229433" @click="() => {buyInfo = item; buyDialog = true}">Buy</v-chip>
         </v-row>
       </template>
     </v-data-table>
@@ -49,11 +50,15 @@
 </template>
 
 <script>
+import BuyDialog from "@/components/Trader/BuyDialog";
 export default {
   name: "FollowingNFTs",
+  components: {BuyDialog},
   props: ['market'],
   data() {
     return {
+      buyDialog: false,
+      buyInfo: null,
       projectDialogShow: false,
       tbDataShow: null,
       headers: [
