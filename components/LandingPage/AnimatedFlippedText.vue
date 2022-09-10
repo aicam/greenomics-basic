@@ -3,8 +3,8 @@
     We want
     <div id=flip>
       <div><div>Green</div></div>
-      <div><div>Clean</div></div>
-      <div><div>Happy!</div></div>
+      <div><div>Sustainable</div></div>
+      <div><div>0 Carbon!</div></div>
     </div>
     Future!
   </div>

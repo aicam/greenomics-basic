@@ -34,6 +34,14 @@ export default {
   },
   methods: {
     buy() {
+      if (this.info.owner)
+        this.$axios.post('marketplace/buy/off', {
+          "buyer": localStorage.getItem("username"),
+          "owner": this.info.owner,
+          "stock": this.stock,
+          "nft_id": this.info.nft_id
+        }).then(res => {location.reload();})
+      else
       this.$axios.post('marketplace/buy', {
         "owner": localStorage.getItem("username"),
         "nft_id": this.info.id,

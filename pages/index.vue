@@ -19,7 +19,7 @@
       <v-row style="padding: 150px" justify="center">
         <v-col lg="4">
           <v-row justify="center" align="center">
-            <h2><p class="trans text-gradient-greenomics" style="font-family: unfair">GREENOMICS</p></h2>
+            <h2><p class="trans text-gradient-greenomics" style="font-family: blk">GREENOMICS</p></h2>
             <v-row>
               <AnimatedFlippedText/>
             </v-row>
@@ -135,6 +135,11 @@ export default {
 @font-face {
   font-family: "unfair";
   src: url(~/static/fonts/unfair/Unfair.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "blk";
+  src: url(~/static/fonts/blk.ttf) format("truetype");
 }
 
 @font-face {

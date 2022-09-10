@@ -53,7 +53,10 @@ export default {
     await this.getAllNFTs()
     this.username = localStorage.getItem("username")
     this.getUserNFTInfo()
-    this.balance = 30000 - this.ownerNfts.reduce((pre, curr) => curr['price'] + pre, 0)
+    this.balance = 30000;
+    this.ownerNfts.map(ownerNft => {
+      this.balance -= ownerNft['price']
+    })
     this.ownerNfts.map(item => {
       if (item.selling_stock > 0)
         this.ownerSellingNfts.push(item)
@@ -72,19 +75,33 @@ export default {
       let userNfts = []
       this.market = structuredClone(this.allNfts)
       this.market.map((nft, i) => this.market[i]['stock'] = nft['co2'])
-      this.owners.map(item => {
+      this.owners.map(owner => {
         this.allNfts.map(nft => {
-          if (nft['id'] === item['nft_id'])
+          if (nft['id'] === owner['nft_id'])
             this.market.map((market_nft, i) => {
-              if (market_nft['id'] === nft['id'])
-                this.market[i]['stock'] -= item['stock']
+              if (market_nft['id'] === nft['id']) {
+                this.market[i]['stock'] -= owner['stock']
+                if (owner['selling_stock'] > 0)
+                  this.market.push({
+                    company_name: nft['company_name'],
+                    id: nft['id'],
+                    co2: nft['co2'],
+                    stock: owner['selling_stock'],
+                    technology: nft['technology'],
+                    verification: nft['verification'],
+                    price: owner['selling_price'],
+                    release: nft['release'],
+                    owner: owner['owner'],
+                  })
+              }
             });
-          if (nft['id'] === item['nft_id'] && item['owner'] === this.username) {
-            item['price'] = ((item['stock'] / nft['co2']) * nft['price']).toFixed(2)
-            item['nft'] = nft
-            userNfts.push(item)
-            if (item['retired'])
-              this.ownerRetiredNfts.push(item)
+          if (nft['id'] === owner['nft_id'] && owner['owner'] === this.username) {
+            owner['price'] = ((owner['stock'] / nft['co2']) * nft['price']).toFixed(2)
+            console.log("owner price: ", owner['price'], "owner stock: ", owner['stock'], " & co2: ", nft['co2'], ' nft price: ', nft['price'])
+            owner['nft'] = nft
+            userNfts.push(owner)
+            if (owner['retired'])
+              this.ownerRetiredNfts.push(owner)
           }
         })
       });

@@ -3,7 +3,7 @@
     <BuyDialog v-if="buyDialog" v-on:close="buyDialog = false" :info="buyInfo" :dialog="buyDialog" />
     <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
-    <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-content-save-all-outline</v-icon>Following NFTs</h1>
+    <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-shopping-outline</v-icon>NFT Marketplace</h1>
     <v-row justify="center" align="center" style="padding: 25px">
       <v-btn
         outlined
@@ -32,8 +32,16 @@
       :headers="headers"
       :items="market"
       item-key="name"
+      :search="search"
       class="elevation-1"
     >
+      <template v-slot:top>
+        <v-text-field
+          v-model="search"
+          label="Search by any column"
+          class="mx-4"
+        ></v-text-field>
+      </template>
       <template v-slot:item.release_date="{item}">
         {{ `${item.release_date.getMonth()}/${item.release_date.getDay()}/${item.release_date.getFullYear()}` }}
       </template>
@@ -61,6 +69,7 @@ export default {
       buyInfo: null,
       projectDialogShow: false,
       tbDataShow: null,
+      search: '',
       headers: [
         {text: 'Company Name', value: 'company_name', align: 'center'},
         {text: 'CO2 (Ton)', value: 'co2', align: 'center'},

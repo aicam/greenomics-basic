@@ -125,7 +125,7 @@ export default {
         },
         {
           icon: 'mdi-molecule-co2',
-          title: 'Manager',
+          title: 'Project Developer',
           to: '/manager',
           in: 'home'
         },

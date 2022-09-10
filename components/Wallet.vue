@@ -59,7 +59,6 @@ export default {
   mounted() {
     this.retiredNfts.map(item => {
       this.usedGCT += item.stock
-      console.log("Wallet usedGCT ", item.stock)
     });
     // Create connector
     this.walletConnector = new NodeWalletConnect(
@@ -99,7 +98,6 @@ export default {
       // Get provided accounts and chainId
       const {accounts, chainId} = payload.params[0];
       this.connectedActions(accounts, chainId)
-      console.log(payload)
     });
 
     this.walletConnector.on("session_update", (error, payload) => {
@@ -143,12 +141,10 @@ export default {
       this.getAccountAssets();
       this.isConnected = true;
       this.walletLoading = false;
-      console.log(this.walletConnector.tokens)
     },
     async getAccountAssets() {
       const response = await this.EthApi().get(`/account-assets?address=${this.address}&chainId=${this.chainID}`);
       // const { result } = response.data;
-      console.log("here")
       response.data.result.map(item => {
         // console.log(item);
         if (item.symbol === 'MATIC') {
