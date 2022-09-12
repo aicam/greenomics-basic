@@ -1,7 +1,8 @@
 <template>
   <v-container>
     <SellDialog v-if="sellDialog" :dialog="sellDialog" v-on:close="closeSellDialog" :info="sellDialogInfo"/>
-    <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
+    <ProjectDialog :title="projectDialogTitle" :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
+    <RetirementDialog v-if="retireDialog" :dialog="retireDialog" :info="retireDialogInfo" v-on:close="retireDialog = false"/>
 
     <h1 style="font-size: 40px"><v-icon size="50" color="#069400">mdi-cart-outline</v-icon>Purchased NFTs</h1>
     <v-row justify="center" align="center" style="padding: 25px">
@@ -37,13 +38,16 @@
       <template v-slot:item.release_date="{item}">
         {{ `${item.release_date.getMonth()}/${item.release_date.getDay()}/${item.release_date.getFullYear()}` }}
       </template>
-      <template v-slot:item.name="{item}">
-        <v-chip @click="projectDialogShow = true">{{ item.name }}</v-chip>
+      <template v-slot:item.nft.company_name="{item}">
+        <v-chip @click="() => {projectDialogTitle = item.nft.company_name; projectDialogShow = true}">{{ item.nft.company_name }}</v-chip>
+      </template>
+      <template v-slot:item.price="{item}">
+        ${{item.price}}
       </template>
       <template v-slot:item.sell="{item}">
         <v-row justify="center" v-if="!item['retired']">
           <v-chip color="#942C26" @click="() => {sellDialog = true; sellDialogInfo = item}">Sell</v-chip>
-          <v-chip color="#D6A75B" @click="retire(item.id)">Retire</v-chip>
+          <v-chip color="#D6A75B" @click="() => {retireDialogInfo = item; retireDialog = true}">Retire</v-chip>
         </v-row>
         <v-row justify="center" v-if="item['retired']">
           <v-chip color="#28D60E">Retired</v-chip>
@@ -55,15 +59,19 @@
 
 <script>
 import SellDialog from "@/components/Trader/SellDialog";
+import RetirementDialog from "@/components/Trader/RetirementDialog";
 export default {
   name: "NFTs",
-  components: {SellDialog},
+  components: {RetirementDialog, SellDialog},
   props: ['ownerNfts'],
   data() {
     return {
       projectDialogShow: false,
+      projectDialogTitle: "",
       sellDialogInfo: {},
       sellDialog: false,
+      retireDialog: false,
+      retireDialogInfo: {},
       tbDataShow: null,
       headers: [
         {text: 'Company Name', value: 'nft.company_name', align: 'center'},

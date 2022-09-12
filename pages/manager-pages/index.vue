@@ -29,7 +29,7 @@ import ManagerInformation from "@/components/Manager/ManagerInformation";
 
 export default {
   name: "index",
-  components: {ManagerInformation, DefineProject, Projects, ProjectInformation}
+  components: {ManagerInformation, DefineProject, Projects, ProjectInformation},
 }
 </script>
 

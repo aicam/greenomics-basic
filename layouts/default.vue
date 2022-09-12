@@ -23,6 +23,7 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+        <v-btn @click="location.href='/'">Logout</v-btn>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -74,7 +75,9 @@ export default {
   name: 'DefaultLayout',
   data: () => {
     return {
+      location: null,
       loc: "",
+      showAppBar: false,
       headerOpacity: 0,
       clipped: false,
       drawer: false,
@@ -146,21 +149,7 @@ export default {
           title: 'News',
           to: '/#',
           in: 'home,verifier,trader,manager'
-        }
-      ],
-      registrationItems: [
-        {
-          title: 'Verifier',
-          to: '/verifier_registration'
         },
-        {
-          title: 'Trader',
-          to: '/trader_registration'
-        },
-        {
-          title: 'Producer',
-          to: '/producer_registration'
-        }
       ],
       miniVariant: false,
       right: true,
@@ -169,7 +158,9 @@ export default {
     }
   },
   mounted() {
+    this.location = window.location;
     this.loc = window.location.href.split('/').filter(i => i !== '');
+    console.log("loc is ", this.loc);
     window.addEventListener("scroll", (event) => {
       var scroll_y = window.scrollY;
       if (scroll_y !== undefined)

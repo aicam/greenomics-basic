@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
+    <ProjectDialog :title="projectDialogTitle" :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
     <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-tag-outline</v-icon>NFTs for Sale</h1>
     <v-row justify="center" align="center" style="padding: 25px">
@@ -36,8 +36,14 @@
       <template v-slot:item.release_date="{item}">
         {{ `${item.release_date.getMonth()}/${item.release_date.getDay()}/${item.release_date.getFullYear()}` }}
       </template>
-      <template v-slot:item.name="{item}">
-        <v-chip @click="projectDialogShow = true">{{ item.name }}</v-chip>
+      <template v-slot:item.nft.company_name="{item}">
+        <v-chip @click="() => {projectDialogTitle = item.nft.company_name; projectDialogShow = true}">{{ item.nft.company_name }}</v-chip>
+      </template>
+      <template v-slot:item.nft.price="{item}">
+        ${{item.nft.price}}
+      </template>
+      <template v-slot:item.selling_price="{item}">
+        ${{item.selling_price}}
       </template>
       <template v-slot:item.buy="{item}">
         <v-row justify="space-around">
@@ -55,6 +61,7 @@ export default {
   data() {
     return {
       projectDialogShow: false,
+      projectDialogTitle: "",
       tbDataShow: null,
       headers: [
         {text: 'Company Name', value: 'nft.company_name', align: 'center'},

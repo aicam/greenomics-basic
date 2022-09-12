@@ -1,7 +1,8 @@
 <template>
-  <v-container v-show="loading">
+  <div v-if="loading" class="justify-center align-center loading-page">
+    <span class="helper"></span>
     <div id="loading-bar-spinner" class="spinner"><div class="spinner-icon"></div></div>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -51,4 +52,23 @@ name: "LoadingBar",
   100% { transform: rotate(360deg); transform: rotate(360deg); }
 }
 
+
+.loading-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
 </style>

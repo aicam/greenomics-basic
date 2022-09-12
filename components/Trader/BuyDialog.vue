@@ -11,9 +11,11 @@
       <v-text-field :label="`Max is ${info.stock}`" v-model="stock"></v-text-field>
       <v-spacer></v-spacer>
       <v-container class="justify-center align-center">
-        <h3>NFT price paid: {{(stock !== null) ? ((stock / info.co2) * info.price).toFixed(2) : 0}}</h3>
-        <h3>Verifiers comission (5%): {{(stock !== null) ? (((stock / info.co2) * info.price) / 20).toFixed(2) : 0}}</h3>
-        <h3>Marketplace comission (2.12%): {{(stock !== null) ? (((stock / info.co2) * info.price).toFixed(2) * 2.12 / 100).toFixed(2) : 0}}</h3>
+        <h3 style="color: #f7d3bd">Each trade includes commission fees for verifiers and marketplace. </h3>
+        <h3>NFT price paid: {{(stock !== null) ? (stock * info.price).toFixed(2) : 0}}</h3>
+        <h3>Verifiers comission (5%): {{(stock !== null) ? ((stock * info.price) / 20).toFixed(2) : 0}}</h3>
+        <h3>Marketplace comission (2.12%): {{(stock !== null) ? ((stock * info.price).toFixed(2) * 2.12 / 100).toFixed(2) : 0}}</h3>
+        <h3>Overall price: {{ ((stock * info.price).toFixed(2) * (107.12 / 100)).toFixed(2) }}</h3>
       </v-container>
       <v-card-actions>
         <v-btn @click="$emit('close')">Close</v-btn>
@@ -34,12 +36,18 @@ export default {
   },
   methods: {
     buy() {
+      console.log({
+        "buyer": localStorage.getItem("username"),
+        "owner": this.info.owner,
+        "stock": this.stock,
+        "nft_id": this.info.id
+      })
       if (this.info.owner)
         this.$axios.post('marketplace/buy/off', {
           "buyer": localStorage.getItem("username"),
           "owner": this.info.owner,
           "stock": this.stock,
-          "nft_id": this.info.nft_id
+          "nft_id": this.info.id
         }).then(res => {location.reload();})
       else
       this.$axios.post('marketplace/buy', {

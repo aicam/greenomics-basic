@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <BuyDialog v-if="buyDialog" v-on:close="buyDialog = false" :info="buyInfo" :dialog="buyDialog" />
-    <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
+    <ProjectDialog :title="projectDialogTitle" :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
     <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-shopping-outline</v-icon>NFT Marketplace</h1>
     <v-row justify="center" align="center" style="padding: 25px">
@@ -45,12 +45,15 @@
       <template v-slot:item.release_date="{item}">
         {{ `${item.release_date.getMonth()}/${item.release_date.getDay()}/${item.release_date.getFullYear()}` }}
       </template>
-      <template v-slot:item.name="{item}">
-        <v-chip @click="projectDialogShow = true">{{ item.name }}</v-chip>
+      <template v-slot:item.company_name="{item}">
+        <v-chip @click="() => {projectDialogTitle = item.company_name; projectDialogShow = true}">{{ item.company_name }}</v-chip>
+      </template>
+      <template v-slot:item.price="{item}">
+        ${{item.price}}
       </template>
       <template v-slot:item.buy="{item}">
         <v-row justify="center">
-          <v-chip color="#229433" @click="() => {buyInfo = item; buyDialog = true}">Buy</v-chip>
+          <v-chip outlined color="white" @click="() => {buyInfo = item; buyDialog = true}">Buy</v-chip>
         </v-row>
       </template>
     </v-data-table>
@@ -68,6 +71,7 @@ export default {
       buyDialog: false,
       buyInfo: null,
       projectDialogShow: false,
+      projectDialogTitle: "",
       tbDataShow: null,
       search: '',
       headers: [

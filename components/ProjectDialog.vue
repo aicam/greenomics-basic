@@ -13,7 +13,7 @@
         >Project details</v-toolbar>
         <v-card-text>
           <div class="text-h4" style="padding-top: 45px">Title of Company</div>
-          <div class="text-h6"><a href="#">Green Earth</a></div>
+          <div class="text-h6"><a href="#">{{title}}</a></div>
 
           <div class="text-h4" style="padding-top: 45px">Field</div>
           <div class="text-h6">Industry</div>
@@ -43,7 +43,7 @@
 <script>
 export default {
   name: "ProjectDialog",
-  props: ["openDialog", "closeDialog"]
+  props: ["openDialog", "closeDialog", "title"]
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
-  <v-card style="padding: 50px;">
+  <v-card style="padding: 50px;" class="text-center">
     <v-container class="text-center">
       <h3 style="font-size: 25px">Balance</h3>
-      <strong style="font-size: 18px">${{ balance }}</strong>
+      <strong style="font-size: 18px">${{ balance ? balance : 30000 }}</strong>
     </v-container>
     <h3 style="font-size: 25px">Wallet Information</h3>
     <div style="padding-top: 20px" v-show="walletLoading || !isConnected">
@@ -29,6 +29,11 @@
       <v-row justify="space-around" align="center" style="padding: 25px">
         <strong>{{ this.MaticBalance }}</strong>
       </v-row>
+      <v-row justify="center" align="center">
+        <a @click="walletConnector.killSession()">Disconnect</a>
+      </v-row>
+    </v-container>
+    <v-container>
       <h3>GCT Tokens</h3>
       <v-row justify="space-around" align="center" style="padding: 25px">
         <strong>{{ 500 - usedGCT }}</strong>
@@ -57,9 +62,11 @@ export default {
     }
   },
   mounted() {
-    this.retiredNfts.map(item => {
-      this.usedGCT += item.stock
-    });
+    setTimeout(() => {
+      this.retiredNfts.map(item => {
+        this.usedGCT += item.stock
+      });
+    }, 2000)
     // Create connector
     this.walletConnector = new NodeWalletConnect(
       {

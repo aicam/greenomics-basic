@@ -96,7 +96,7 @@ export default {
               }
             });
           if (nft['id'] === owner['nft_id'] && owner['owner'] === this.username) {
-            owner['price'] = ((owner['stock'] / nft['co2']) * nft['price']).toFixed(2)
+            owner['price'] = owner['stock']*nft['price']
             console.log("owner price: ", owner['price'], "owner stock: ", owner['stock'], " & co2: ", nft['co2'], ' nft price: ', nft['price'])
             owner['nft'] = nft
             userNfts.push(owner)

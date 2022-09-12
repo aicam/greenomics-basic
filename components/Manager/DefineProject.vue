@@ -9,6 +9,7 @@
         </v-col>
         <v-text-field
           label="Company Name"
+          v-model="companyName"
           counter="30"/>
       </v-row>
 
@@ -18,6 +19,7 @@
         </v-col>
         <v-text-field
           label="CO2 Removal by Ton"
+          v-model="co2"
           counter="10"/>
       </v-row>
 
@@ -31,6 +33,7 @@
         </v-col>
         <v-text-field
           label="Initial price by US dollar"
+          v-model="price"
           counter="10"/>
       </v-row>
 
@@ -78,11 +81,12 @@
           <v-select
             label="Technology"
             :items="['Natural', 'Industrial']"
+            v-model="tech"
             ></v-select>
         </v-col>
       </v-row>
       <v-card-actions>
-        <v-btn outlined color="#AEAFF9">Submit</v-btn>
+        <v-btn outlined @click="submit" color="#AEAFF9">Submit</v-btn>
       </v-card-actions>
     </v-card>
   </v-container>
@@ -95,6 +99,11 @@ export default {
     date: null,
     activePicker: null,
     menu: false,
+    companyName: null,
+    co2: null,
+    price: null,
+    tech: null,
+    allNfts: []
   }),
   mounted() {
     this.date = this.formatDate(new Date());
@@ -105,6 +114,15 @@ export default {
     },
   },
   methods: {
+    submit() {
+      this.$axios.post("marketplace/add", {
+        company_name: this.companyName,
+        co2: this.co2,
+        price: this.price,
+        release: this.date,
+        technology: this.tech
+      }).then(res => location.reload())
+    },
     save (date) {
       this.$refs.menu.save(date)
     },

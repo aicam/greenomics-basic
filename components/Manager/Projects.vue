@@ -7,19 +7,19 @@
       v-if="tbDataShow != null"
       dense
       :headers="headers"
-      :items="tbDataShow"
+      :items="allNfts"
       item-key="id"
       class="elevation-1"
     >
-      <template v-slot:item.release_date="{item}">
-        {{ `${item.release_date.getMonth()}/${item.release_date.getDay()}/${item.release_date.getFullYear()}` }}
-      </template>
+<!--      <template v-slot:item.release="{item}">-->
+<!--        {{ `${item.release.getMonth()}/${item.release.getDay()}/${item.release.getFullYear()}` }}-->
+<!--      </template>-->
       <template v-slot:item.name="{item}">
         <v-chip @click="projectDialogShow = true">{{ item.name }}</v-chip>
       </template>
       <template v-slot:item.stat="{item}">
         <v-row justify="center">
-          <v-chip :color="(item.stat === 'bid') ? `#229433` : `#943C41`">{{(item.stat === 'bid') ? 'Accept Bid' : 'Sold'}}</v-chip>
+          <v-chip color="#D6CFC2" outlined>Change Price</v-chip>
         </v-row>
       </template>
     </v-data-table>
@@ -34,14 +34,12 @@ export default {
       projectDialogShow: false,
       tbDataShow: null,
       headers: [
-        {text: 'Company Name', value: 'name', align: 'center'},
+        {text: 'Company Name', value: 'company_name', align: 'center'},
         {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
-        {text: 'Technology', value: 'tech', align: 'center'},
+        {text: 'Technology', value: 'technology', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
-        {text: 'Highest bid', value: 'highest_bid', align: 'center'},
-        {text: 'Release date', value: 'release_date', align: 'center'},
-        {text: 'NFT minted date', value: 'mint_date', align: 'center'},
-        {text: 'Sold date', value: 'bought_date', align: 'center'},
+        {text: 'Release date', value: 'release', align: 'center'},
+        {text: 'NFT minted date', value: 'mint', align: 'center'},
         {text: 'Actions', value: 'stat', align: 'center'}
       ],
       tbData: [
@@ -70,10 +68,17 @@ export default {
           highest_bid: '$129,000'
         }
       ],
+      allNfts: []
     }
   },
   mounted() {
     this.tbDataShow = this.tbData
+    this.$axios.get('marketplace/nft_list').then(res => {
+      res.data.map(nft => {
+        if (nft.added)
+          this.allNfts.push(nft)
+      })
+    })
   }
 }
 </script>
