@@ -51,6 +51,9 @@
       <template v-slot:item.price="{item}">
         ${{item.price}}
       </template>
+      <template v-slot:item.verification="{item}">
+        <v-chip :color="item.verification > 0 ? '#2AE909' : '#D11517'"> {{item.verification > 0 ? 'Approved' : 'Initial'}}</v-chip>
+      </template>
       <template v-slot:item.buy="{item}">
         <v-row justify="center">
           <v-chip outlined color="white" @click="() => {buyInfo = item; buyDialog = true}">Buy</v-chip>
@@ -79,7 +82,7 @@ export default {
         {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
         {text: 'Stock Remained', value: 'stock', align: 'center'},
         {text: 'Technology', value: 'technology', align: 'center'},
-        {text: '# Verifications', value: 'verification', align: 'center'},
+        {text: 'Status', value: 'verification', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
         {text: 'Release date', value: 'release', align: 'center'},
         // {text: 'NFT minted date', value: 'mint_date', align: 'center'},

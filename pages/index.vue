@@ -19,7 +19,7 @@
       <v-row style="padding: 150px" justify="center">
         <v-col lg="4">
           <v-row justify="center" align="center">
-            <h2><p class="trans text-gradient-greenomics" style="font-family: blk">GREENOMICS</p></h2>
+            <h2><p class="trans text-gradient-greenomics">GREENOMICS</p></h2>
             <v-row>
               <AnimatedFlippedText/>
             </v-row>
@@ -41,22 +41,20 @@
         <v-col style="padding-right: 30px;">
           <v-row justify="center" align="center">
             <h2 style="color: black; font-size: 25px; font-family: 'DejaVu Sans'">
-              Our mission is to reduce the atmospheric carbon back to the sustainable level
-              for planet earth (1 C above pre-industrial age). We ensure global carbon
-              offset/removal empowering all technologies, and we ensure global efficiency in
-              use of carbon emission allowances. We do these in an environmentally and
-              socially sustainable approach.
+              <b>Our mission</b> is to ensure annually at least 5 GtCO2 is removed from atmosphere or
+              captured before entering the atmosphere by 2030 in an environmentally and socially
+              sustainable approach.
             </h2>
           </v-row>
         </v-col>
       </v-row>
     </v-container>
-    <AnimatedCarousel/>
+<!--    <AnimatedCarousel/>-->
     <OurGoal id="services"/>
     <HowWorks id="how"/>
     <Tokenizer id="tokenomics"/>
-    <Partners id="join"/>
     <GCTStat class="trans"/>
+    <Partners id="join"/>
   </div>
 </template>
 

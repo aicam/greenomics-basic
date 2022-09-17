@@ -6,7 +6,9 @@
     width="400px"
   >
     <v-card style="padding: 25px; background: rgba(86,70,144,0.76)">
-      <h3>You are buying stock from {{ info.company_name }}</h3>
+      <h3>You are buying Carbon asset (per Ton) from {{ info.company_name }}</h3>
+      <v-spacer></v-spacer>
+      <h3>Stock price: ${{info.price}}</h3>
       <v-spacer></v-spacer>
       <v-text-field :label="`Max is ${info.stock}`" v-model="stock"></v-text-field>
       <v-spacer></v-spacer>

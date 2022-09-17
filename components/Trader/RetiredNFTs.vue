@@ -2,34 +2,11 @@
   <v-container fluid>
     <ProjectDialog :open-dialog="projectDialogShow" v-on:close-func="projectDialogShow = false"/>
 
-    <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-sale-outline</v-icon>Bid NFTs</h1>
-    <v-row justify="center" align="center" style="padding: 25px">
-      <v-btn
-        outlined
-        color="#949133"
-        @click="tbDataShow = tbData.filter((tb, i) => {return tb.release_date > new Date()})"
-      >
-        Invest
-      </v-btn>
-      <v-btn
-        outlined
-        color="#947461"
-        @click="tbDataShow = tbData.filter((tb, i) => {return tb.release_date < new Date()})"
-      >
-        Trade
-      </v-btn>
-      <v-btn
-        outlined
-        @click="tbDataShow = tbData"
-      >
-        All
-      </v-btn>
-    </v-row>
+    <h1 style="font-size: 40px"><v-icon size="50" color="#009494">mdi-arrange-send-to-back</v-icon>Retired NFTs</h1>
     <v-data-table
-      v-if="tbDataShow != null"
       dense
       :headers="headers"
-      :items="tbDataShow"
+      :items="info"
       item-key="name"
       class="elevation-1"
     >
@@ -39,11 +16,11 @@
       <template v-slot:item.name="{item}">
         <v-chip @click="projectDialogShow = true">{{ item.name }}</v-chip>
       </template>
-      <template v-slot:item.buy="{item}">
-        <v-row justify="center">
-          <v-chip color="#942C26">Cancel Bid</v-chip>
-          <v-chip color="#229433">Buy</v-chip>
-        </v-row>
+      <template v-slot:item.nft.price="{item}">
+        ${{item.nft.price}}
+      </template>
+      <template v-slot:item.verification="{item}">
+        <v-chip :color="item.nft.verification > 0 ? '#2AE909' : '#D11517'"> {{item.nft.verification > 0 ? 'Approved' : 'Initial'}}</v-chip>
       </template>
     </v-data-table>
   </v-container>
@@ -51,22 +28,20 @@
 
 <script>
 export default {
-  name: "Bids",
+  name: "RetiredNFTs",
+  props: ["info"],
   data() {
     return {
       projectDialogShow: false,
       tbDataShow: null,
       headers: [
-        {text: 'Company Name', value: 'name', align: 'center'},
-        {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
-        {text: 'Technology', value: 'tech', align: 'center'},
-        {text: '# Verifications', value: 'verified', align: 'center'},
-        {text: 'Price', value: 'price', align: 'center'},
-        {text: 'Your bid', value: 'highest_bid', align: 'center'},
-        {text: 'Owner', value: 'owner', align: 'center'},
-        {text: 'Release date', value: 'release_date', align: 'center'},
-        // {text: 'NFT minted date', value: 'mint_date', align: 'center'},
-        {text: 'Actions', value: 'buy', align: 'center'},
+        {text: 'Company Name', value: 'nft.company_name', align: 'center'},
+        {text: 'CO2 (Ton)', value: 'nft.co2', align: 'center'},
+        {text: 'stock', value: 'stock', align: 'center'},
+        {text: 'Price', value: 'nft.price', align: 'center'},
+        {text: 'Technology', value: 'nft.technology', align: 'center'},
+        {text: 'status', value: 'verification', align: 'center'},
+        {text: 'Vintage', value: 'nft.release', align: 'center'},
       ],
       tbData: [
         {

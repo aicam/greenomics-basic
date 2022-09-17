@@ -20,7 +20,7 @@
           Close
         </v-btn>
         <v-btn
-          @click="$emit('retire')"
+          @click="retire"
           color="#43D6CE"
           outlined>
           Retire

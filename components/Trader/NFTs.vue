@@ -47,7 +47,7 @@
       <template v-slot:item.sell="{item}">
         <v-row justify="center" v-if="!item['retired']">
           <v-chip color="#942C26" @click="() => {sellDialog = true; sellDialogInfo = item}">Sell</v-chip>
-          <v-chip color="#D6A75B" @click="() => {retireDialogInfo = item; retireDialog = true}">Retire</v-chip>
+          <v-chip v-if="checkReleaseDate(item.nft['release'])" color="#D6A75B" @click="() => {retireDialogInfo = item;  retireDialog = true}">Retire</v-chip>
         </v-row>
         <v-row justify="center" v-if="item['retired']">
           <v-chip color="#28D60E">Retired</v-chip>
@@ -114,6 +114,12 @@ export default {
     },
     retire(id) {
       this.$axios.get("marketplace/retire?id=" + id).then((res) => location.reload())
+    },
+    checkReleaseDate(release_date) {
+      if ( new Date().getTime() > new Date(release_date).getTime()) {
+        return true
+      }
+      return false
     }
   }
 }

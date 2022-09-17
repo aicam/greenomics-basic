@@ -19,7 +19,7 @@
       </template>
       <template v-slot:item.stat="{item}">
         <v-row justify="center">
-          <v-chip color="#D6CFC2" outlined>Change Price</v-chip>
+          <v-chip color="#D6CFC2" outlined>Modify</v-chip>
         </v-row>
       </template>
     </v-data-table>

@@ -35,7 +35,7 @@ export default {
   data() {
     return({
       cardsInfo: [
-        {'title': 'Verification', 'img': daoImg,
+        {'title': 'Finance your carbon removal and carbon capture projects', 'img': daoImg,
           'desc': 'Verify a carbon removal project to make money, become a governing member of ' +
             'the Carbon Removal Community, and save the world! Want to further increase your ' +
             'impact? Become a certified verifier-pages.'},

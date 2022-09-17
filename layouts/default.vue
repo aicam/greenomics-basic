@@ -109,10 +109,10 @@ export default {
           in: 'manager'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Marketplace',
-          to: '/marketplace',
-          in: 'home,verifier,trader,manager'
+          icon: 'mdi-molecule-co2',
+          title: 'Project Developer',
+          to: '/manager',
+          in: 'home'
         },
         {
           icon: 'mdi-check-decagram',
@@ -127,10 +127,10 @@ export default {
           in: 'home'
         },
         {
-          icon: 'mdi-molecule-co2',
-          title: 'Project Developer',
-          to: '/manager',
-          in: 'home'
+          icon: 'mdi-chart-bubble',
+          title: 'Marketplace',
+          to: '/marketplace',
+          in: 'home,verifier,trader,manager'
         },
         {
           icon: 'mdi-chat-question-outline',

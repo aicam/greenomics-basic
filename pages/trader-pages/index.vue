@@ -6,7 +6,7 @@
       </v-col>
       <v-col>
         <v-card style="padding: 20px">
-          <NFTs :owner-nfts="ownerNfts"/>
+          <NFTs :owner-nfts="ownerNonRetiredNfts"/>
         </v-card>
       </v-col>
       <v-col lg="9">
@@ -15,6 +15,9 @@
         </v-card>
         <v-card style="padding: 20px">
           <FollowingNFTs :market="market"/>
+        </v-card>
+        <v-card style="padding: 20px">
+          <RetiredNFTs :info="ownerRetiredNfts"/>
         </v-card>
       </v-col>
       <v-col lg="3">
@@ -31,12 +34,13 @@ import NFTs from "@/components/Trader/NFTs";
 import FollowingNFTs from "@/components/Trader/FollowingNFTs";
 import TraderInformation from "@/components/Trader/TraderInformation";
 import SellingNFTs from "@/components/Trader/SellingNFTs";
-import Bids from "@/components/Trader/Bids";
+import Bids from "@/components/Trader/RetiredNFTs";
 import LatestNews from "@/components/Trader/LatestNews";
+import RetiredNFTs from "@/components/Trader/RetiredNFTs";
 
 export default {
   name: "index",
-  components: {LatestNews, Bids, SellingNFTs, TraderInformation, FollowingNFTs, NFTs},
+  components: {RetiredNFTs, LatestNews, Bids, SellingNFTs, TraderInformation, FollowingNFTs, NFTs},
   data() {
     return {
       owners: [],
@@ -46,7 +50,8 @@ export default {
       ownerSellingNfts: [],
       balance: 0,
       ownerRetiredNfts: [],
-      market: []
+      market: [],
+      ownerNonRetiredNfts: []
     }
   },
   async mounted() {
@@ -102,6 +107,8 @@ export default {
             userNfts.push(owner)
             if (owner['retired'])
               this.ownerRetiredNfts.push(owner)
+            else
+              this.ownerNonRetiredNfts.push(owner)
           }
         })
       });
