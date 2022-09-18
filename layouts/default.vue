@@ -31,10 +31,10 @@
       fixed
       app
       v-if="(loc.length !== 2) ? true : this.headerOpacity > 0.01"
-      :style="{opacity: headerOpacity}"
+      :style="{background: `rgba(0, 0, 0, ${headerOpacity})`}"
       class="navbar"
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon style="opacity: 1" @click.stop="drawer = !drawer" />
       <v-spacer></v-spacer>
       <img id="header-logo" src="@/static/logo.png" />
       <v-spacer></v-spacer>
@@ -160,7 +160,7 @@ export default {
   mounted() {
     this.location = window.location;
     this.loc = window.location.href.split('/').filter(i => i !== '');
-    console.log("loc is ", this.loc);
+    console.log("loc is ", this.loc.length);
     window.addEventListener("scroll", (event) => {
       var scroll_y = window.scrollY;
       if (scroll_y !== undefined)

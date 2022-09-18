@@ -22,17 +22,6 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
-  // vue: {
-  //   config: {
-  //     css: {
-  //       loaderOptions: {
-  //         sass: {
-  //           // includePaths: ['node_modules/compass-mixins/lib']
-  //         }
-  //       }
-  //     }
-  //   }
-  // },
 
   axios: {
     baseURL: 'http://localhost:8000' // Used as fallback if no runtime config is provided
@@ -82,6 +71,6 @@ export default {
     assetsPublicPath: '/static/'
   },
   server: {
-    host: 'localhost'
+    host: '0'
   }
 }

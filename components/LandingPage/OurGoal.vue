@@ -8,13 +8,13 @@
             style="background: white;"
             elevation="10"
             max-width="400"
-            height="450"
+            height="550"
           >
             <img style="padding: 10px" class="tile" :src="item.img" height="200px" max-width="400px"/>
             <v-card-text>
-              <h3 style="color: #672f08; font-size: 35px; margin-top: 20px; font-family: 'DejaVu Sans';
-                  letter-spacing: 3px">{{item.title}}</h3>
-              <p style="color: black; font-size: 20px; padding-top: 30px;">{{item.desc}}</p>
+              <p style="color: #672f08; font-size: 30px; margin-top: 20px; line-height: 28px;
+                  letter-spacing: 3px">{{item.title}}</p>
+              <p style="color: black; font-size: 20px; padding-top: 10px;">{{item.desc}}</p>
             </v-card-text>
           </v-card>
         </v-row>
@@ -35,21 +35,23 @@ export default {
   data() {
     return({
       cardsInfo: [
-        {'title': 'Finance your carbon removal and carbon capture projects', 'img': daoImg,
+        {'title': 'Finance your carbon removal and carbon capture projects', 'img': investmentImg,
           'desc': 'Verify a carbon removal project to make money, become a governing member of ' +
             'the Carbon Removal Community, and save the world! Want to further increase your ' +
             'impact? Become a certified verifier-pages.'},
-        {'title': 'Invest & Trade', 'img': investmentImg,
-          'desc': 'Many essential companies need to emit carbon while many projects are ready ' +
-            'to remove carbon from the atmosphere. Invest on the projects or trade their ' +
-            'carbon removal via our transparent marketplace on blockchain.'},
-        {'title': 'Registry', 'img': smartcontractImg,
-          'desc': 'We have provided all solutions in one system. All projects are registered in a transparent and ' +
-                  'scalable decentralized infrastructure. The system searches actively for double counted or duplicate projects to remove them.'},
+        {'title': 'Invest on carbon removal and capture projects', 'img': daoImg,
+          'desc': 'choose your desired ' +
+            'carbon removal and capture project to invest on using the verification information for ' +
+            'a reliable investment, and then own the project Carbon absorption yields'},
+        {'title': 'Trade Carbon assets before and after Carbon absorption', 'img': smartcontractImg,
+          'desc': 'Trade NFTs for ' +
+            'projects waiting for carbon absorption, or trade the carbon tokens and attributes ' +
+            'NFTs post absorption'},
         {
-          'title': 'Develop', 'img': projectJPG,
-          'desc': 'There 7+ billion people looking for inventions that save us from global warming! you have an idea? define your' +
-            ' project and get your own coin, make money, save the world'
+          'title': 'Verify Carbon assets and get share of their trade', 'img': projectJPG,
+          'desc': 'Choose from the list of ' +
+            'available projects for verification, verify some of their required attributes, and ' +
+            'automatically get a commission share of any of their future trades'
         },
         // {
         //   'title': 'Smart Contract', 'img': smartcontractImg,

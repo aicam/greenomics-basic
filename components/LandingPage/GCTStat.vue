@@ -48,7 +48,7 @@
           two-line
           style="padding: 10px"
         >
-          <strong>Average mint per year: 2.2</strong>
+          <strong>Average mint per year: 338620</strong>
           <v-list-item
             v-for="item in gctMintBased"
             :key="item.title"

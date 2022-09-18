@@ -24,6 +24,10 @@
       >
         All
       </v-btn>
+      <v-btn
+        outlined
+        color="#910076"
+      >Trade verification rights</v-btn>
     </v-row>
     <v-data-table
       v-if="tbDataShow != null"
@@ -41,7 +45,6 @@
       </template>
       <template v-slot:item.actions="{item}">
         <v-row justify="center">
-          <v-chip color="#949200">Bid</v-chip>
           <v-chip color="#3A6F94">Buy</v-chip>
         </v-row>
       </template>

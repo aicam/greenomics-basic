@@ -5,7 +5,7 @@
         <Wallet/>
       </v-col>
       <v-col lg="5">
-        <VerifiedProjects />
+        <VerifiedProjects v-if="allNfts" :info="allNfts"/>
       </v-col>
       <v-col lg="2">
         <VerifierInformation />
@@ -20,6 +20,21 @@ import VerifierInformation from "@/components/Verifier/VerifierIndex/VerifierInf
 export default {
   name: "index",
   components: {VerifierInformation, VerifiedProjects},
+  data() {
+    return {
+      allNfts: []
+    }
+  },
+  mounted() {
+    this.getAllNFTs();
+  },
+  methods: {
+    async getAllNFTs() {
+      await this.$axios.get('marketplace/nft_list').then(res => {
+        this.allNfts = res.data
+      })
+    },
+  }
 }
 </script>
 

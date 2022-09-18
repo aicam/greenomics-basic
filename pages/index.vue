@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container fluid :style="{backgroundImage: `url('${require('static/landing/a.webp')}')`}" class="background">
+    <v-container fluid class="background"> <!-- :style="{backgroundImage: `url('${require('static/landing/a.webp')}')`}" > -->
       <v-row id="top-menu-items" justify="center">
         <v-col v-for="(item, i) in topMenu" cols="2" :key="i">
           <v-btn
@@ -52,8 +52,10 @@
 <!--    <AnimatedCarousel/>-->
     <OurGoal id="services"/>
     <HowWorks id="how"/>
-    <Tokenizer id="tokenomics"/>
+    <WeAPI />
+<!--    <Tokenizer id="tokenomics"/>-->
     <GCTStat class="trans"/>
+    <NFTMarketplace />
     <Partners id="join"/>
   </div>
 </template>
@@ -66,10 +68,14 @@ import Partners from "@/components/LandingPage/Communities";
 import GCTStat from "@/components/LandingPage/GCTStat";
 import AnimatedCarousel from "@/components/LandingPage/AnimatedCarousel";
 import AnimatedFlippedText from "@/components/LandingPage/AnimatedFlippedText";
+import NFTMarketplace from "@/components/Marketplace/NFTMarketplace";
+import WeAPI from "@/components/LandingPage/WeAPI";
 
 export default {
   name: 'IndexPage',
-  components: {AnimatedFlippedText, AnimatedCarousel, GCTStat, Partners, Tokenizer, HowWorks, OurGoal},
+  components: {
+    WeAPI,
+    NFTMarketplace, AnimatedFlippedText, AnimatedCarousel, GCTStat, Partners, Tokenizer, HowWorks, OurGoal},
   data() {
     return ({
       onPageLoadedFadeIn: false,

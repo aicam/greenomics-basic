@@ -1,28 +1,33 @@
 <template>
   <v-card style="padding: 15px">
 
-    <VerificationProof :open-dialog="verificationDialog" v-on:close-func="verificationDialog = false"/>
+    <VerificationProof :id="verifyingNftId" :open-dialog="verificationDialog"
+                       v-on:close-func="verificationDialog = false"/>
     <ProjectDialog :open-dialog="projectDialog" v-on:close-func="projectDialog = false"/>
 
     <v-row justify="center">
       <h3 style="padding-top: 20px">
         <v-icon color="green">mdi-check-decagram</v-icon>
-        Verified Projects
+        Projects
       </h3>
     </v-row>
     <v-row justify="center" align="center" style="padding: 20px">
       <v-data-table
         dense
         :headers="verifiedTable"
-        :items="verifiedProjects"
+        :items="info"
         item-key="title"
         class="elevation-1"
       >
-        <template v-slot:item.proof="{item}">
-          <v-chip small color="blue" @click="verificationDialog = true">Click</v-chip>
+        <template v-slot:item.verification="{item}">
+          <v-chip small :color="(item.verification > 0 ? 'green' : 'red')" @click="() => {
+            verifyingNftId = item.id;
+            verificationDialog = true;}">
+            {{ (item.verification > 0 ? 'Approved' : 'Initial') }}
+          </v-chip>
         </template>
         <template v-slot:item.title="{item}">
-          <v-chip small color="#757171" @click="projectDialog = true">{{item.title}}</v-chip>
+          <v-chip small color="#757171" @click="projectDialog = true">{{ item.title }}</v-chip>
         </template>
       </v-data-table>
     </v-row>
@@ -35,16 +40,17 @@ import VerificationProof from "@/components/Verifier/VerifierIndex/VerificationP
 export default {
   name: "VerifiedProjects",
   components: {VerificationProof},
+  props: ['info'],
   data() {
     return {
+      verifyingNftId: null,
       verificationDialog: false,
       projectDialog: false,
       verifiedTable: [
-        {text: 'Company', value: 'title', align: 'center'},
-        {text: 'CO2 (Ton)', value: 'carbon', align: 'center'},
-        {text: 'Date verified', value: 'date', align: 'center'},
-        {text: 'Technology', value: 'tech', align: 'center'},
-        {text: 'Proof', value: 'proof', align: 'center'}
+        {text: 'Company', value: 'company_name', align: 'center'},
+        {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
+        {text: 'Technology', value: 'technology', align: 'center'},
+        {text: 'Status', value: 'verification', align: 'center'}
       ],
       verifiedProjects: [
         {
