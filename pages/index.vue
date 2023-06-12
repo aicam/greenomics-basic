@@ -143,7 +143,7 @@ export default {
 
 @font-face {
   font-family: "blk";
-  src: url(~/static/fonts/blk.ttf) format("truetype");
+  src: url(~/static/fonts/FeFCit2.ttf) format("truetype");
 }
 
 @font-face {

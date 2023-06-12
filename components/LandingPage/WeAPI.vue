@@ -7,7 +7,8 @@
           services and risk assessments, or use APIs for other services</h3>
       </v-col>
       <v-col>
-        <img width="300" src="~/static/landing/api.jpg">
+        <!-- TODO: uncomment -->
+<!--        <img width="300" src="~/static/landing/api.jpg">-->
       </v-col>
     </v-row>
   </v-container>

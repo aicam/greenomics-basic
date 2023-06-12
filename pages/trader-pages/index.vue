@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-row justify="center" align="start" v-if="owners.length > 0 && allNfts.length > 0">
+    <v-row justify="center" align="start" v-if="allNfts.length > 0">
       <v-col lg="3">
         <Wallet :retired-nfts="ownerRetiredNfts" :balance="balance"/>
       </v-col>

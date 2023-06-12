@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
@@ -25,7 +25,6 @@
     "@fortawesome/fontawesome-free": "^6.1.2",
     "@nuxtjs/vuetify": "^1.12.3",
     "compass-mixins": "^0.12.12",
-    "node-sass": "^7.0.1",
     "sass-loader": "^10.3.1"
   }
 }
