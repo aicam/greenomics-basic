@@ -23,21 +23,25 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
-        <v-btn @click="location.href='/'">Logout</v-btn>
+        <v-btn @click="logout">Logout</v-btn>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
       :clipped-left="clipped"
       fixed
       app
-      v-if="(loc.length !== 2) ? true : this.headerOpacity > 0.01"
-      :style="{background: `rgba(0, 0, 0, ${headerOpacity})`}"
       class="navbar"
     >
       <v-app-bar-nav-icon style="opacity: 1" @click.stop="drawer = !drawer" />
       <v-spacer></v-spacer>
       <img id="header-logo" src="@/static/logo.png" />
       <v-spacer></v-spacer>
+      <v-chip v-if="username !== undefined">
+        <v-icon large>
+          mdi-account-outline
+        </v-icon>
+        {{username}}
+      </v-chip>
     </v-app-bar>
     <v-main class="ma-0">
       <v-container class="py-0 px-0" fluid>
@@ -77,10 +81,11 @@ export default {
     return {
       location: null,
       loc: "",
+      username: "",
       showAppBar: false,
       headerOpacity: 0,
       clipped: false,
-      drawer: false,
+      drawer: true,
       fixed: false,
       hereIs: 'home',
       items: [
@@ -98,33 +103,39 @@ export default {
         },
         {
           icon: 'mdi-view-dashboard-outline',
-          title: 'Trader Homepage',
-          to: '/trader-pages',
-          in: 'trader'
+          title: 'Trader',
+          to: '/search',
+          in: 'home,verifier,trader,manager'
         },
-        {
-          icon: 'mdi-view-dashboard-outline',
-          title: 'Manager Homepage',
-          to: '/manager-pages',
-          in: 'manager'
-        },
+        // {
+        //   icon: 'mdi-view-dashboard-outline',
+        //   title: 'Trader Homepage',
+        //   to: '/trader-pages',
+        //   in: 'trader'
+        // },
+        // {
+        //   icon: 'mdi-view-dashboard-outline',
+        //   title: 'Manager Homepage',
+        //   to: '/manager-pages',
+        //   in: 'manager'
+        // },
         {
           icon: 'mdi-molecule-co2',
           title: 'Project Developer',
           to: '/manager',
-          in: 'home'
+          in: 'home,verifier,trader,manager'
         },
         {
           icon: 'mdi-check-decagram',
           title: 'Verifier',
           to: '/verifier',
-          in: 'home'
+          in: 'home,verifier,trader,manager'
         },
         {
           icon: 'mdi-cart-variant',
-          title: 'Trader',
+          title: 'Investor',
           to: '/trader',
-          in: 'home'
+          in: 'home,verifier,trader,manager'
         },
         {
           icon: 'mdi-chart-bubble',
@@ -170,7 +181,7 @@ export default {
         window.removeEventListener("scroll", this)
       }
     });
-
+    this.username = localStorage.getItem("username")
     if (window.location.href.includes('verifier-pages'))
       this.items = this.items.filter((it, i) => it.in.includes('verifier'))
     else if(window.location.href.includes('trader-pages'))
@@ -179,6 +190,13 @@ export default {
       this.items = this.items.filter((it, i) => it.in.includes('manager'))
     else
       this.items = this.items.filter((it, i) => it.in.includes('home'))
+    console.log('username in layout ', this.username)
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem("username")
+      location.href='/'
+    }
   }
 }
 </script>

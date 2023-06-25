@@ -26,6 +26,8 @@ export default {
   },
   mounted() {
     this.window = window;
+    if (localStorage.getItem("username"))
+      window.location.href = `${window.location.href.replace(this.current_path, this.dst_path)}`
   },
   methods: {
     login() {

@@ -65,15 +65,15 @@ export default {
         {text: 'NFT minted date', value: 'mint_date', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
         {text: 'Highest Bid', value: 'highest_bid', align: 'center'},
-        {text: 'Release date', value: 'release_date', align: 'center'},
+        {text: 'Vintage date', value: 'release_date', align: 'center'},
         {text: 'Owner', value: 'owner', align: 'center'},
         {text: 'Technology', value: 'tech', align: 'center'},
         {text: 'Actions', value: 'actions', align: 'center'}
       ],
       tbData: [
         {
-          name: 'Kill Carbon',
-          co2: '4.33',
+          name: 'Kill carbon',
+          co2: '1560.3',
           mint_date: '11/09/2017',
           price: '$78,000',
           release_date: new Date('08/22/2030'),
@@ -94,7 +94,7 @@ export default {
           verified: '898'
         },
         {
-          name: 'Kir Carbon',
+          name: 'Kir carbon',
           co2: '7.2',
           mint_date: '11/09/2019',
           price: '$480,000',

@@ -70,7 +70,7 @@ export default {
         {text: 'Stock price', value: 'selling_price', align: 'center'},
         {text: 'Technology', value: 'nft.technology', align: 'center'},
         {text: 'Price', value: 'nft.price', align: 'center'},
-        {text: 'Release date', value: 'nft.release', align: 'center'},
+        {text: 'Vintage date', value: 'nft.release', align: 'center'},
         {text: 'Actions', value: 'buy', align: 'center'},
       ],
       tbData: [

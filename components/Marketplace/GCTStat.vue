@@ -5,7 +5,7 @@
         color="light-blue"
         dark
       >
-        <v-toolbar-title>GCT Price by Market Cap</v-toolbar-title>
+        <v-toolbar-title>Greenomics Carbon Token price</v-toolbar-title>
         <v-spacer></v-spacer>
       </v-toolbar>
 
@@ -14,7 +14,7 @@
         two-line
         style="padding: 10px"
       >
-        <strong>Current price: $443.27</strong>
+        <strong>Current price: $93.6</strong>
         <v-list-item
           v-for="item in gctTimeBased"
           :key="item.title"
@@ -38,7 +38,7 @@
         color="light-blue"
         dark
       >
-        <v-toolbar-title>GCT Minted by Time</v-toolbar-title>
+        <v-toolbar-title>Project minted by time</v-toolbar-title>
         <v-spacer></v-spacer>
       </v-toolbar>
       <v-list
@@ -46,7 +46,7 @@
         two-line
         style="padding: 10px"
       >
-        <strong>Average mint per year: 2.2</strong>
+<!--        <strong>Average mint per year: 2.2</strong>-->
         <v-list-item
           v-for="item in gctMintBased"
           :key="item.title"

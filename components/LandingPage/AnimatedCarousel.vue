@@ -9,7 +9,7 @@
                 <img src="~/static/landing/verification.gif">
               </v-row>
               <v-row justify="center" style="background: #92a0d6">
-                <h3 style="color: black; font-size: 25px">True Carbon Credit</h3>
+                <h3 style="color: black; font-size: 25px">True carbon Credit</h3>
               </v-row>
             </v-container>
           </div>

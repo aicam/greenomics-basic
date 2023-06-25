@@ -84,7 +84,7 @@ export default {
         {text: 'Technology', value: 'technology', align: 'center'},
         {text: 'Status', value: 'verification', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
-        {text: 'Release date', value: 'release', align: 'center'},
+        {text: 'Vintage date', value: 'release', align: 'center'},
         // {text: 'NFT minted date', value: 'mint_date', align: 'center'},
         {text: 'Actions', value: 'buy', align: 'center'},
       ],

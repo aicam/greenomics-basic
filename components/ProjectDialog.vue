@@ -18,7 +18,7 @@
           <div class="text-h4" style="padding-top: 45px">Field</div>
           <div class="text-h6">Industry</div>
 
-          <div class="text-h4" style="padding-top: 45px">Total amount of Carbon & time</div>
+          <div class="text-h4" style="padding-top: 45px">Total amount of carbon & time</div>
           <div class="text-h6">3.3 Ton CO2 - project relases at 09/07/2024</div>
 
           <div class="text-h4" style="padding-top: 45px">Location & #Verifications</div>

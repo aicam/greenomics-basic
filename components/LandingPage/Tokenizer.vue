@@ -11,7 +11,7 @@
         <v-row justify="center" align="center">
           <h2 style="color: black; font-size: 20px;">Each project has its own ERC721 token, in this regard, projects
             have different values based on their
-            Carbon removal rate, timing and ...</h2>
+            carbon removal rate, timing and ...</h2>
         </v-row>
       </v-col>
     </v-row>

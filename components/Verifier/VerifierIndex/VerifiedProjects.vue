@@ -23,7 +23,7 @@
           <v-chip small :color="(item.verification > 0 ? 'green' : 'red')" @click="() => {
             verifyingNftId = item.id;
             verificationDialog = true;}">
-            {{ (item.verification > 0 ? 'Approved' : 'Initial') }}
+            {{ (item.verification > 0 ? 'Approved' : 'Needs verification') }}
           </v-chip>
         </template>
         <template v-slot:item.title="{item}">

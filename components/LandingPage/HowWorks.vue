@@ -6,15 +6,12 @@
     <v-row justify="center" align="center" style="padding-bottom: 50px">
       <v-col lg="6">
         <v-row style="padding: 30px" class="text-center">
-          <h3 style="color: #963eeb; font-size: 25px; font-family: Chandas">We provide a transparent and global
-            marketplace for carbon assets using blockchain
-            technology. Our solution allows capturing diversity of the carbon assets, by minting
-            NFTs for the projects pre-carbon absorption, while providing a fungible carbon token
-            market, by minting carbon tokens post-absorption.
-            We also increase the verification speed by 80% by enabling crowd verification and
-            facilitating use of technologies, e.g. satellite imaging and IoT. We provide certificates
-            to verifier to verify assets and get a share of their trade. We use smart contracts to
-            automate the financial incentives.</h3>
+          <h3 style="color: #963eeb; font-size: 25px; font-family: Chandas">
+            Our search engine aggregates all voluntary
+            carbon markets using our global carbon registry. Our investment platform allows for financing and investing
+            in carbon projects. We also facilitate crowd sourcing for agile and low cost verification.
+            Our on-chain solution provides transparency while allowing for diversity of the projects.
+          </h3>
         </v-row>
       </v-col>
       <v-col class="justify-center tile">

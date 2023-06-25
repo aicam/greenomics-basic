@@ -19,7 +19,7 @@
       <v-row style="padding: 150px" justify="center">
         <v-col lg="4">
           <v-row justify="center" align="center">
-            <h2><p class="trans text-gradient-greenomics">GREENOMICS</p></h2>
+            <h2><p class="trans text-gradient-greenomics">GREENOMICS: <br> A catalyzer for voluntary carbon market</p></h2>
             <v-row>
               <AnimatedFlippedText/>
             </v-row>
@@ -89,16 +89,8 @@ export default {
           href: '#services'
         },
         {
-          title: 'How Works',
+          title: 'How It Works',
           href: '#how'
-        },
-        {
-          title: 'Tokenomics',
-          href: '#tokenomics'
-        },
-        {
-          title: 'GCT',
-          href: '#gctstat'
         },
         {
           title: 'Join Us',
@@ -185,7 +177,7 @@ export default {
   }
 
   .text-gradient-greenomics {
-    font-size: 100px;
+    font-size: 40px;
   }
 }
 

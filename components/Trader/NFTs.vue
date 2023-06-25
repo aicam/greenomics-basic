@@ -79,14 +79,14 @@ export default {
         {text: 'Stock', value: 'stock', align: 'center'},
         {text: 'Technology', value: 'nft.technology', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
-        {text: 'Release date', value: 'nft.release', align: 'center'},
+        {text: 'Vintage date', value: 'nft.release', align: 'center'},
         {text: 'Bought date', value: 'bought_date', align: 'center'},
         {text: 'Actions', value: 'sell', align: 'center'}
       ],
       tbData: [
         {
-          name: 'Kill Carbon',
-          co2: '4.33',
+          name: 'Kill carbon',
+          co2: '1560.3',
           mint_date: '11/09/2017',
           bought_date: '12/08/2021',
           price: '$78,000',

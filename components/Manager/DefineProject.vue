@@ -5,7 +5,7 @@
 
       <v-row align="center" style="padding-top: 40px;">
         <v-col lg="8">
-          <h3>The company should have been registered under certified LLC brands</h3>
+          <h3>The company should be registered under certified LLC brands</h3>
         </v-col>
         <v-text-field
           label="Company Name"
@@ -25,11 +25,9 @@
 
       <v-row align="center">
         <v-col lg="8">
-          <h3>Your initial price represents the minimum price that your project (NFT) starts in market with. Take care
-            of
-            your fee percentage. Each time the NFT is traded, you get 5% fee out of the price, in this regard, you can
-            start
-            your project with low price to let it trade for many times and gain fee out of all transactions</h3>
+          <h3>Your initial price represents the minimum price that your project (NFT) starts with market.
+            There is also commission on trade.
+          </h3>
         </v-col>
         <v-text-field
           label="Initial price by US dollar"
@@ -39,7 +37,7 @@
 
       <v-row align="center">
         <v-col lg="8">
-          <h3>Release date should be accurate and can not be changed for more than one month</h3>
+          <h3>Vintage date should be accurate up to a month</h3>
         </v-col>
 
         <div>
@@ -54,7 +52,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 v-model="date"
-                label="Release date"
+                label="Vintage date"
                 prepend-icon="mdi-calendar"
                 readonly
                 v-bind="attrs"
@@ -74,8 +72,7 @@
 
       <v-row align="center">
         <v-col lg="8">
-          <h3>If you are a farmer or have a plan to cultivate to remove carbon choose Natural. Otherwise choose
-          Industrial which means you want to develop a technology that remove carbon including turbines.</h3>
+          <h3>Choose your carbon removal technology.</h3>
         </v-col>
         <v-col>
           <v-select

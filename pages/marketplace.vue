@@ -11,7 +11,7 @@
         style="background: #333232"
       >
         <v-card-title>
-          <h3 id="title" style="color: #cecaca;">Greenomics Carbon Token</h3>
+<!--          <h3 id="title" style="color: #cecaca;">Greenomics carbon Token</h3>-->
         </v-card-title>
         <GCTStat/>
         <v-container fluid>

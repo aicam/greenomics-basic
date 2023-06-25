@@ -35,7 +35,7 @@ export default {
   components: {Completed, Login, Register},
   data() {
     return ({
-      step: 1,
+      step: 0,
     })
   },
   methods: {

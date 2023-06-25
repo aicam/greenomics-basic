@@ -38,15 +38,15 @@ export default {
         {text: 'CO2 (Ton)', value: 'co2', align: 'center'},
         {text: 'Technology', value: 'technology', align: 'center'},
         {text: 'Price', value: 'price', align: 'center'},
-        {text: 'Release date', value: 'release', align: 'center'},
+        {text: 'Vintage date', value: 'release', align: 'center'},
         {text: 'NFT minted date', value: 'mint', align: 'center'},
         {text: 'Actions', value: 'stat', align: 'center'}
       ],
       tbData: [
         {
           id: 23112,
-          name: 'Kill Carbon',
-          co2: '4.33',
+          name: 'Kill carbon',
+          co2: '1560.3',
           mint_date: '11/09/2017',
           bought_date: 'Not Sold',
           price: '$78,000',
@@ -57,8 +57,8 @@ export default {
         },
         {
           id: 23111,
-          name: 'Kill Carbon',
-          co2: '2.97',
+          name: 'Kill carbon',
+          co2: '1560.3',
           mint_date: '10/29/2018',
           bought_date: '04/22/2022',
           price: '$129,000',

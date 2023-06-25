@@ -4,7 +4,7 @@
     <div id=flip>
       <div><div>Green</div></div>
       <div><div>Sustainable</div></div>
-      <div><div>0 Carbon!</div></div>
+      <div><div>Net Zero</div></div>
     </div>
     Future!
   </div>

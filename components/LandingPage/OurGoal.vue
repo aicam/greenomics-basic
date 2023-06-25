@@ -37,18 +37,18 @@ export default {
       cardsInfo: [
         {'title': 'Finance your carbon removal and carbon capture projects', 'img': investmentImg,
           'desc': 'Verify a carbon removal project to make money, become a governing member of ' +
-            'the Carbon Removal Community, and save the world! Want to further increase your ' +
+            'the carbon Removal Community, and save the world! Want to further increase your ' +
             'impact? Become a certified verifier-pages.'},
         {'title': 'Invest on carbon removal and capture projects', 'img': daoImg,
           'desc': 'choose your desired ' +
             'carbon removal and capture project to invest on using the verification information for ' +
-            'a reliable investment, and then own the project Carbon absorption yields'},
-        {'title': 'Trade Carbon assets before and after Carbon absorption', 'img': smartcontractImg,
+            'a reliable investment, and then own the project carbon absorption yields'},
+        {'title': 'Trade carbon assets before and after carbon absorption', 'img': smartcontractImg,
           'desc': 'Trade NFTs for ' +
             'projects waiting for carbon absorption, or trade the carbon tokens and attributes ' +
             'NFTs post absorption'},
         {
-          'title': 'Verify Carbon assets and get share of their trade', 'img': projectJPG,
+          'title': 'Verify carbon assets and get share of their trade', 'img': projectJPG,
           'desc': 'Choose from the list of ' +
             'available projects for verification, verify some of their required attributes, and ' +
             'automatically get a commission share of any of their future trades'

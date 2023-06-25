@@ -2,17 +2,33 @@
   <v-container fluid style="padding-top: 30px;">
     <v-card>
       <v-row justify="center" align="center">
-        <h2>Search among all Carbon removal projects with a tool powered by Gen AI</h2>
+        <h2>Search among all carbon removal projects globally powered by Gen AI</h2>
       </v-row>
       <v-row style="padding: 20px 15% 0 15%; margin: 0">
         <v-text-field
+          :disabled="search.inSearch"
+          v-model="search.prompt"
           label="Your criteria"
           placeholder="Explain what kind of project you are interested in"
           filled
         />
+        <v-btn
+          @click="ask"
+          x-large
+        >
+          Search
+        </v-btn>
       </v-row>
+      <v-progress-linear
+        indeterminate
+        color="white"
+        v-if="search.inSearch"
+      ></v-progress-linear>
     </v-card>
-    <canvas></canvas>
+    <v-row justify="center" style="padding: 0 50px 0 50px">
+      <p>{{search.ans}}</p>
+    </v-row>
+    <canvas :style="{opacity: (search.inSearch) ? 0.2 : 1}"></canvas>
 
   </v-container>
 </template>
@@ -20,6 +36,28 @@
 <script>
 export default {
   name: "search",
+  data() {
+    return {
+      search: {
+        inSearch: false,
+        prompt: "",
+        ans: "",
+        ctx: null
+      }
+    }
+  },
+  methods: {
+    ask() {
+      this.search.inSearch = true
+      const api = this.$axios.create({
+        baseURL: "https://b49ebf7lsb.execute-api.us-west-1.amazonaws.com/stage/"
+      })
+      api.post("chatbot/greenomics", {q: this.search.prompt}).then(res => {
+        this.search.ans = res.data.choices[0].message.content
+        this.search.inSearch = false
+      })
+    }
+  },
   mounted() {
     var canvas, ctx, max, p, count;
 
@@ -29,6 +67,7 @@ export default {
       ctx = canvas.getContext('2d');
       canvas.width = canvas.height = 400;
       ctx.fillRect(0, 0, 400, 400);
+      this.ctx = ctx
       max = 80;
       count = 150;
       p = [];
